@@ -18,8 +18,14 @@ public class Game {
 	}
 
 	private static void run_game(Joueur joueur1, Joueur joueur2) {
-		while (joueur1.Vie !=0 || joueur2.Vie != 0) {
-			
+		while (joueur1.getVie() > 0 && joueur2.getVie() > 0) {
+			joueur1.attack(joueur2);
+			joueur2.attack(joueur1);
+		}
+		if(joueur1.getVie() <= 0) {
+			System.out.println("Joueur 1 a perdu !");
+		} else {
+			System.out.println("Joueur 2 a perdu !");			
 		}
 	}
 

@@ -13,11 +13,17 @@ public class Joueur {
 		Intelligence = nouvelleIntelligence;
 	}
 	
-	public String getName() {
-		return Nom;
+	/**
+	 *  returns player life
+	 */
+	public int getVie() {
+		return Vie;
 	}
 	
-	public void setName(String nouveauNom) {
-		Nom = nouveauNom;
+	/**
+	 * change player life
+	 */
+	public void setVie(int nouvelleVie) {
+		Vie = nouvelleVie;
 	}
 }
