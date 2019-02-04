@@ -1,11 +1,11 @@
 package pt.marquesmota;
 
 public class Rodeur extends Joueur{
-	public void attaque_basique(Joueur opposant) {
-		
+	public Effet attaque_basique() {
+		return new Effet("Tir à l'Arc", 0, Agilite);
 	}
-	public void attaque_speciale(Joueur opposant) {
-		
+	public Effet attaque_speciale() {
+		return new Effet("", 0, 0);
 	}
 
 }

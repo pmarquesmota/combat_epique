@@ -1,10 +1,10 @@
 package pt.marquesmota;
 
 public class Guerrier extends Joueur{
-	public void attaque_basique(Joueur opposant) {
-		
+	public Effet attaque_basique() {
+		return new Effet("Coup d'Épée", 0, Force);
 	}
-	public void attaque_speciale(Joueur opposant) {
-		
+	public Effet attaque_speciale() {
+		return new Effet("Coup de Rage", Force/2, Force);
 	}
 }
