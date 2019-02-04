@@ -9,7 +9,7 @@ public class Rodeur extends Joueur{
 	}
 	public Effet attaque_speciale() {
 		Agilite += Niveau/2;
-		System.out.println(Nom + " se concentre et gagne "+Niveau/2+" en agilité.");
+		System.out.println(Nom + " utilise Concentration et gagne "+Niveau/2+" en agilité.");
 		return new Effet("", 0, 0);
 	}
 	public String toString() {

@@ -13,7 +13,7 @@ public class Mage extends Joueur{
 		if(Vie > VieInitiale) {
 			Vie = VieInitiale;
 		}
-		System.out.println(Nom+" se soigne et regagne "+gain+" points de vie");
+		System.out.println(Nom+" utilise soin et gagne "+gain+" en vitalité");
 		return new Effet("", 0, 0);
 	}
 	public String toString() {
