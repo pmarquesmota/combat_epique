@@ -8,8 +8,9 @@ public class Rodeur extends Joueur{
 		return new Effet("Tir à l'Arc", 0, Agilite);
 	}
 	public Effet attaque_speciale() {
-		Agilite += Niveau/2;
-		System.out.println(Nom + " utilise Concentration et gagne "+Niveau/2+" en agilité.");
+		int gain = Niveau/2;
+		Agilite += gain;
+		System.out.println(Nom + " utilise Concentration et gagne "+gain+" en agilité.");
 		return new Effet("", 0, 0);
 	}
 	public String toString() {
