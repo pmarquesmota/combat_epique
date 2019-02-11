@@ -12,7 +12,7 @@ public class Choose {
 			if (i<minimum || i>maximum) {
 				System.out.println("Choix incorrect. Veuillez recommencer");
 			}
-		} while (i<minimum || i>minimum);
+		} while (i<minimum || i>maximum);
 		return i;
 	}
 }
