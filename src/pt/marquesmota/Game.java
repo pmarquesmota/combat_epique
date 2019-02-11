@@ -1,7 +1,5 @@
 package pt.marquesmota;
 
-import java.util.Scanner;
-
 public class Game {
 	public static void start() {
 		Joueur Joueur1, Joueur2;
@@ -32,11 +30,11 @@ public class Game {
 	public static Joueur create_character(String nouveauNom) {
 		Joueur nouveauJoueur = null;
 
-		int Classe = choice("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1, 3);
-		int Niveau = choice("Niveau du personnage ?", 1, 100);
-		int Force = choice("Force du personnage ?", 0, 100);
-		int Agilite = choice("Agilite du personnage ?", 0, 100);
-		int Intelligence = choice("Intelligence du personnage ?", 0, 100);
+		int Classe = Choose.choice("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1, 3);
+		int Niveau = Choose.choice("Niveau du personnage ?", 1, 100);
+		int Force = Choose.choice("Force du personnage ?", 0, 100);
+		int Agilite = Choose.choice("Agilite du personnage ?", 0, 100);
+		int Intelligence = Choose.choice("Intelligence du personnage ?", 0, 100);
 		switch (Classe) {
 		case 1:
 			nouveauJoueur = new Guerrier(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);

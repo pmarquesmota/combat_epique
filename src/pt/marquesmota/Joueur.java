@@ -1,7 +1,5 @@
 package pt.marquesmota;
 
-import java.util.Scanner;
-
 public class Joueur {
 	protected int Niveau, Vie, VieInitiale, Force, Agilite, Intelligence;
 	protected String Nom;
@@ -29,10 +27,7 @@ public class Joueur {
 		Vie = nouvelleVie;
 	}
 
-	public void attack(Joueur unJoueur) {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println(Nom+" ("+Vie+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale");
-		
+	public void attack(Joueur unJoueur) {		
+		Choose.choice(Nom+" ("+Vie+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale", 1, 2);
 	}
 }
