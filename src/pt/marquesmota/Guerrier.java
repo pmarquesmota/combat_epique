@@ -8,7 +8,7 @@ public class Guerrier extends Joueur{
 		return new Effet("Coup d'Épée", 0, this.getForce());
 	}
 	public Effet attaque_speciale() {
-		return new Effet("Coup de Rage", this.getForce()/2, this.getForce());
+		return new Effet("Coup de Rage", this.getForce()/2, this.getForce()*2);
 	}
 	public String toString() {
 		return "Woarg je suis le Guerrier "+this.getNom()+
