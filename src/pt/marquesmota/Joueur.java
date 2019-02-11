@@ -6,6 +6,7 @@ public abstract class Joueur {
 	
 	Joueur(String nouveauNom, int nouveauNiveau, int nouvelleVie, int nouvelleForce, int nouvelleAgilite, int nouvelleIntelligence) {
 		Nom = nouveauNom;
+		Niveau = nouveauNiveau;
 		VieInitiale = nouvelleVie;
 		Vie = nouvelleVie;
 		Force = nouvelleForce;
