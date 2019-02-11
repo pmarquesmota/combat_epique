@@ -95,7 +95,7 @@ public abstract class Joueur {
 			System.out.println(unJoueur.getNom()+" perd "+dommage+" points de vie");
 			unJoueur.setVie(unJoueur.getVie() - dommage);
 			if(unJoueur.getVie() <= 0) {
-				System.out.println(unJoueur.getNom +" est mort");
+				System.out.println(unJoueur.getNom() +" est mort");
 			}
 		}
 	}
