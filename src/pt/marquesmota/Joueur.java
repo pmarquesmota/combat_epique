@@ -26,4 +26,11 @@ public class Joueur {
 	public void setVie(int nouvelleVie) {
 		Vie = nouvelleVie;
 	}
+
+	public void attack(Joueur unJoueur) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println(Nom+" ("+Vie+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale");
+		
+	}
 }
