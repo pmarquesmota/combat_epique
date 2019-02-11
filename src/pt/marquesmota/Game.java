@@ -8,7 +8,9 @@ import java.util.Scanner;
  * @version     1.0
  */
 public class Game {
-	
+	/**
+	 * This variable is declared once here to avoid being instanced each time Choose.choice is called
+	 */
 	static Scanner sc;
 	
 	/**
