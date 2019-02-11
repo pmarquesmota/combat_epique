@@ -3,7 +3,7 @@ package pt.marquesmota;
 /**
  * Superclass of the character's object.
  * <p>
- * Marked as abstract since it contains the abstracts methods attaque_basique and attaque_speciale implemented in the subclass
+ * Marked as abstract since it contains the abstracts methods attaque_basique, attaque_speciale and toString implemented in the subclass
  * </p>
  * @author      Paul Marques Mota <pmarquesmota@gmail.com>
  * @version     1.0
