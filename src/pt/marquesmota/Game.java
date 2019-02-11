@@ -18,7 +18,7 @@ public class Game {
 	private static void run_game(Joueur joueur1, Joueur joueur2) {
 		while (joueur1.getVie() > 0 && joueur2.getVie() > 0) {
 			joueur1.attaque(joueur2);
-			if(joueur2.getVie()>0) {
+			if(joueur1.getVie()>0 || joueur2.getVie()>0) {
 				joueur2.attaque(joueur1);
 			}
 		}
