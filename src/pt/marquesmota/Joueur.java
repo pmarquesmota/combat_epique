@@ -1,6 +1,6 @@
 package pt.marquesmota;
 
-public class Joueur {
+public abstract class Joueur {
 	private int Niveau, Vie, VieInitiale, Force, Agilite, Intelligence;
 	private String Nom;
 	
@@ -76,7 +76,27 @@ public class Joueur {
 		Vie = nouvelleVie;
 	}
 
-	public void attack(Joueur unJoueur) {		
-		Choose.choice(Nom+" ("+Vie+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale", 1, 2);
+	public void attaque(Joueur unJoueur) {	
+		Effet resultat;
+		int choix = Choose.choice(Nom+" ("+Vie+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale", 1, 2);
+		if(choix == 1) {
+			resultat = this.attaque_basique();
+		} else {
+			resultat = this.attaque_speciale();
+		}
+		System.out.println(this.getNom()+" utilise "+resultat.getNom()+" et inflige "+resultat.getDommageAutre()+" dommages.");
+		this.perdVie(resultat.getDommageAutre(), unJoueur);
+		this.perdVie(resultat.getDommageSoi(), this);
 	}
+	
+	public void perdVie(int dommage, Joueur unJoueur) {
+		if(dommage > 0) {
+			System.out.println(unJoueur.getNom()+" perd "+dommage+" points de vie");
+			unJoueur.setVie(unJoueur.getVie() - dommage);
+		}
+	}
+
+	public abstract Effet attaque_basique();
+	public abstract Effet attaque_speciale();
+	public abstract String toString();
 }
