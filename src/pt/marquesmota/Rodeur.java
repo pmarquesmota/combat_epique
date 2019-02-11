@@ -5,20 +5,20 @@ public class Rodeur extends Joueur{
 		super(nouveauNom, nouveauNiveau, nouvelleVie, nouvelleForce, nouvelleAgilite, nouvelleIntelligence);
 	}
 	public Effet attaque_basique() {
-		return new Effet("Tir à l'Arc", 0, Agilite);
+		return new Effet("Tir à l'Arc", 0, this.getAgilite());
 	}
 	public Effet attaque_speciale() {
-		int gain = Niveau/2;
-		Agilite += gain;
-		System.out.println(Nom + " utilise Concentration et gagne "+gain+" en agilité.");
+		int gain = this.getNiveau()/2;
+		this.setAgilite(this.getAgilite() + gain);
+		System.out.println(this.getNom() + " utilise Concentration et gagne "+gain+" en agilité.");
 		return new Effet("", 0, 0);
 	}
 	public String toString() {
-		return "Woof je suis le Rodeur "+Nom+
-				" niveau "+Niveau+
-				" je possède "+Vie+" de vitalité, "+
-				Force+ " de force, "+
-				Agilite+" d'agilité et"+
-				Intelligence+" d'intelligence !";
+		return "Woof je suis le Rodeur "+this.getNom()+
+				" niveau "+this.getNiveau()+
+				" je possède "+this.getVie()+" de vitalité, "+
+				this.getForce()+ " de force, "+
+				this.getAgilite()+" d'agilité et"+
+				this.getIntelligence()+" d'intelligence !";
 	}
 }

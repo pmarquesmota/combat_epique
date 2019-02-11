@@ -5,23 +5,23 @@ public class Mage extends Joueur{
 		super(nouveauNom, nouveauNiveau, nouvelleVie, nouvelleForce, nouvelleAgilite, nouvelleIntelligence);
 	}
 	public Effet attaque_basique() {
-		return new Effet("Boule de Feu", 0, Intelligence);
+		return new Effet("Boule de Feu", 0, this.getIntelligence());
 	}
 	public Effet attaque_speciale() {
-		int gain = Intelligence*2;
-		Vie += gain;
-		if(Vie > VieInitiale) {
-			Vie = VieInitiale;
+		int gain = this.getIntelligence()*2;
+		this.setVie(this.getVie() + gain);
+		if(this.getVie() > this.getVieInitiale()) {
+			this.setVie(this.getVieInitiale());
 		}
-		System.out.println(Nom+" utilise soin et gagne "+gain+" en vitalité");
+		System.out.println(this.getNom()+" utilise soin et gagne "+gain+" en vitalité");
 		return new Effet("", 0, 0);
 	}
 	public String toString() {
-		return "Abracadabra je suis le Mage "+Nom+
-				" niveau "+Niveau+
-				" je possède "+Vie+" de vitalité, "+
-				Force+ " de force, "+
-				Agilite+" d'agilité et"+
-				Intelligence+" d'intelligence !";
+		return "Abracadabra je suis le Mage "+this.getNom()+
+				" niveau "+this.getNiveau()+
+				" je possède "+this.getVie()+" de vitalité, "+
+				this.getForce()+ " de force, "+
+				this.getAgilite()+" d'agilité et"+
+				this.getIntelligence()+" d'intelligence !";
 	}
 }

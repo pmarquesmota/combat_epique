@@ -5,17 +5,17 @@ public class Guerrier extends Joueur{
 		super(nouveauNom, nouveauNiveau, nouvelleVie, nouvelleForce, nouvelleAgilite, nouvelleIntelligence);
 	}
 	public Effet attaque_basique() {
-		return new Effet("Coup d'Épée", 0, Force);
+		return new Effet("Coup d'Épée", 0, this.getForce());
 	}
 	public Effet attaque_speciale() {
-		return new Effet("Coup de Rage", Force/2, Force);
+		return new Effet("Coup de Rage", this.getForce()/2, this.getForce());
 	}
 	public String toString() {
-		return "Woarg je suis le Guerrier "+Nom+
-				" niveau "+Niveau+
-				" je possède "+Vie+" de vitalité, "+
-				Force+ " de force, "+
-				Agilite+" d'agilité et"+
-				Intelligence+" d'intelligence !";
+		return "Woarg je suis le Guerrier "+this.getNom()+
+				" niveau "+this.getNiveau()+
+				" je possède "+this.getVie()+" de vitalité, "+
+				this.getForce()+ " de force, "+
+				this.getAgilite()+" d'agilité et"+
+				this.getIntelligence()+" d'intelligence !";
 	}
 }
