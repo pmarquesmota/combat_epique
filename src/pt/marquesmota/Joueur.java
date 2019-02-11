@@ -78,11 +78,11 @@ public abstract class Joueur {
 
 	public void attaque(Joueur unJoueur) {	
 		Effet resultat;
-		int choix = Choose.choice(Nom+" ("+Vie+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale)", 1, 2);
+		int choix = Choose.choice(getNom()+" ("+getVie()+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale)", 1, 2);
 		if(choix == 1) {
-			resultat = this.attaque_basique();
+			resultat = attaque_basique();
 		} else {
-			resultat = this.attaque_speciale();
+			resultat = attaque_speciale();
 		}
 		System.out.println(resultat.getChaine());
 		perdVie(resultat.getDommageAutre(), unJoueur);
