@@ -1,5 +1,7 @@
 package pt.marquesmota;
 
+import java.util.Scanner;
+
 public class Joueur {
 	protected int Niveau, Vie, VieInitiale, Force, Agilite, Intelligence;
 	protected String Nom;
