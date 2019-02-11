@@ -1,17 +1,24 @@
 package pt.marquesmota;
 
+import java.util.Scanner;
+
 /**
  * class which is used to manage the abstract high level view of the game.
  * @author      Paul Marques Mota <pmarquesmota@gmail.com>
  * @version     1.0
  */
 public class Game {
+	
+	static Scanner sc;
+	
 	/**
 	 * Creates the characters and pass the execution to run_game to carry on to the main loop of the game.
 	 */
 	public static void start() {
 		Joueur Joueur1, Joueur2;
 
+		sc = new Scanner(System.in);
+		
 		System.out.println("Création du personnage du Joueur 1");
 		Joueur1 = create_character("Joueur 1");
 		System.out.println(Joueur1.toString());

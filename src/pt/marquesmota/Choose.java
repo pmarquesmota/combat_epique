@@ -1,7 +1,5 @@
 package pt.marquesmota;
 
-import java.util.Scanner;
-
 /**
  * Class for handling the choices asked to the player
  * <p>
@@ -18,13 +16,22 @@ public class Choose {
 	 * @return The number chosen by the user.
 	 */
 	public static int choice(String question, int minimum, int maximum) {
-		int i;
-		Scanner sc = new Scanner(System.in);
+		int i = 0;
+		
 		do {
-			System.out.println(question);
-			i = sc.nextInt();
-			if (i<minimum || i>maximum) {
-				System.out.println("Choix incorrect. Veuillez recommencer");
+			try {
+				System.out.println(question);
+				i = Game.sc.nextInt();
+				if (i<minimum || i>maximum) {
+					System.out.println("Choix incorrect. Veuillez recommencer");
+				}
+			} catch(Exception e) {
+				System.out.println("Choix incorrect. Veuillez recommencer et saisir un nombre");
+				//On vide la ligne avant d'en lire une autre
+				if(Game.sc.hasNextLine()) {
+					Game.sc.nextLine();
+				}
+				i=0;
 			}
 		} while (i<minimum || i>maximum);
 		return i;
