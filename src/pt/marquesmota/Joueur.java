@@ -85,8 +85,8 @@ public abstract class Joueur {
 			resultat = this.attaque_speciale();
 		}
 		System.out.println(this.getNom()+" utilise "+resultat.getNom()+" et inflige "+resultat.getDommageAutre()+" dommages.");
-		this.perdVie(resultat.getDommageAutre(), unJoueur);
-		this.perdVie(resultat.getDommageSoi(), this);
+		perdVie(resultat.getDommageAutre(), unJoueur);
+		perdVie(resultat.getDommageSoi(), this);
 	}
 	
 	public void perdVie(int dommage, Joueur unJoueur) {
