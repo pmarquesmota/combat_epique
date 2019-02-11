@@ -5,10 +5,10 @@ public class Guerrier extends Joueur{
 		super(nouveauNom, nouveauNiveau, nouvelleVie, nouvelleForce, nouvelleAgilite, nouvelleIntelligence);
 	}
 	public Effet attaque_basique() {
-		return new Effet("Coup d'Épée", 0, this.getForce());
+		return new Effet(this.getNom()+" utilise Coup d'Épée et inflige "+this.getForce()+" dommages.", 0, this.getForce());
 	}
 	public Effet attaque_speciale() {
-		return new Effet("Coup de Rage", this.getForce()/2, this.getForce()*2);
+		return new Effet(this.getNom()+" utilise Coup de Rage et inflige "+this.getForce()*2+" dommages.", this.getForce()/2, this.getForce()*2);
 	}
 	public String toString() {
 		return "Woarg je suis le Guerrier "+this.getNom()+

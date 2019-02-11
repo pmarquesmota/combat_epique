@@ -5,7 +5,7 @@ public class Mage extends Joueur{
 		super(nouveauNom, nouveauNiveau, nouvelleVie, nouvelleForce, nouvelleAgilite, nouvelleIntelligence);
 	}
 	public Effet attaque_basique() {
-		return new Effet("Boule de Feu", 0, this.getIntelligence());
+		return new Effet(this.getNom()+" utilise Boule de Feu et inflige "+this.getIntelligence()+" dommages.", 0, this.getIntelligence());
 	}
 	public Effet attaque_speciale() {
 		int gain = this.getIntelligence()*2;
@@ -13,8 +13,7 @@ public class Mage extends Joueur{
 		if(this.getVie() > this.getVieInitiale()) {
 			this.setVie(this.getVieInitiale());
 		}
-		System.out.println(this.getNom()+" utilise soin et gagne "+gain+" en vitalité");
-		return new Effet("", 0, 0);
+		return new Effet(this.getNom()+" utilise Soin et gagne "+gain+" en vitalité", 0, 0);
 	}
 	public String toString() {
 		return "Abracadabra je suis le Mage "+this.getNom()+

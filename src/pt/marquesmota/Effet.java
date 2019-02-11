@@ -1,17 +1,17 @@
 package pt.marquesmota;
 
 public class Effet {
-	private String Nom;
+	private String Chaine;
 	private int DommageSoi;
 	private int DommageAutre;
 	
-	public Effet(String initNom, int initDommageSoi, int initDommageAutre) {
-		Nom = initNom;
+	public Effet(String initChaine, int initDommageSoi, int initDommageAutre) {
+		Chaine = initChaine;
 		DommageSoi = initDommageSoi;
 		DommageAutre = initDommageAutre;
 	}
-	public String getNom() {
-		return Nom;
+	public String getChaine() {
+		return Chaine;
 	}
 	public int getDommageSoi() {
 		return DommageSoi;

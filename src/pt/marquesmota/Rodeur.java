@@ -5,13 +5,12 @@ public class Rodeur extends Joueur{
 		super(nouveauNom, nouveauNiveau, nouvelleVie, nouvelleForce, nouvelleAgilite, nouvelleIntelligence);
 	}
 	public Effet attaque_basique() {
-		return new Effet("Tir à l'Arc", 0, this.getAgilite());
+		return new Effet(this.getNom()+" utilise Tir à l'Arc et inflige "+this.getAgilite()+" dommages.", 0, this.getAgilite());
 	}
 	public Effet attaque_speciale() {
 		int gain = this.getNiveau()/2;
 		this.setAgilite(this.getAgilite() + gain);
-		System.out.println(this.getNom() + " utilise Concentration et gagne "+gain+" en agilité.");
-		return new Effet("", 0, 0);
+		return new Effet(this.getNom() + " utilise Concentration et gagne "+gain+" en agilité.", 0, 0);
 	}
 	public String toString() {
 		return "Woof je suis le Rodeur "+this.getNom()+
