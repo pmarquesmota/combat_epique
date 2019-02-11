@@ -18,7 +18,7 @@ public class Rodeur extends Joueur{
 				" niveau "+this.getNiveau()+
 				" je possède "+this.getVie()+" de vitalité, "+
 				this.getForce()+ " de force, "+
-				this.getAgilite()+" d'agilité et"+
+				this.getAgilite()+" d'agilité et "+
 				this.getIntelligence()+" d'intelligence !";
 	}
 }
