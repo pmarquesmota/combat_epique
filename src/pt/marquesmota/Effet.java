@@ -1,9 +1,9 @@
 package pt.marquesmota;
 
 public class Effet {
-	public String Nom;
-	public int DommageSoi;
-	public int DommageAutre;
+	private String Nom;
+	private int DommageSoi;
+	private int DommageAutre;
 	
 	public Effet(String initNom, int initDommageSoi, int initDommageAutre) {
 		Nom = initNom;
