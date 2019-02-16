@@ -81,12 +81,18 @@ public class Game {
 	}
 
 	public void choose_character() {
-		Classe = Choose.choice("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1,
-				3);
-		Niveau = Choose.choice("Niveau du personnage ?", 1, 100);
-		Force = Choose.choice("Force du personnage ?", 0, 100);
-		Agilite = Choose.choice("Agilite du personnage ?", 0, 100);
-		Intelligence = Choose.choice("Intelligence du personnage ?", 0, 100);
+		do {
+			Classe = Choose.choice(
+					"Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1, 3);
+			Niveau = Choose.choice("Niveau du personnage ?", 1, 100);
+			Force = Choose.choice("Force du personnage ?", 0, 100);
+			Agilite = Choose.choice("Agilite du personnage ?", 0, 100);
+			Intelligence = Choose.choice("Intelligence du personnage ?", 0, 100);
+			if (Force + Agilite + Intelligence != Niveau) {
+				System.out.println(
+						"Attention le total force + agilité + intelligence doit être égal au niveau du joueur. Veuillez recommencer, s'il vous plait.");
+			}
+		} while (Force + Agilite + Intelligence == Niveau);
 	}
 
 	public Joueur create_character_object(String nouveauNom) {
