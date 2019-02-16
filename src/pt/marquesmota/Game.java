@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * class which is used to manage the abstract high level view of the game.
  * 
- * @author Paul Marques Mota <pmarquesmota@gmail.com>
+ * @author Paul Marques Mota <paul@marquesmota.pt>
  * @version 1.0
  */
 public class Game {
