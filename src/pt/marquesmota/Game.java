@@ -80,6 +80,9 @@ public class Game {
 		return unJoueur;
 	}
 
+	/**
+	 * Choose the character's characteristics
+	 */
 	public void choose_character() {
 		do {
 			Classe = Choose.choice(
@@ -95,6 +98,11 @@ public class Game {
 		} while (Force + Agilite + Intelligence == Niveau);
 	}
 
+	/**
+	 * Create the character's object
+	 * @param nouveauNom
+	 * @return an object representing the player
+	 */
 	public Joueur create_character_object(String nouveauNom) {
 		Joueur nouveauJoueur = null;
 
