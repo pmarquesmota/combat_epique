@@ -15,10 +15,29 @@ public class Game {
 	 */
 	static Scanner sc;
 
+	/**
+	 * The player's class
+	 */
 	private int Classe;
+	
+	/**
+	 * The player's level
+	 */
 	private int Niveau;
+	
+	/**
+	 * The player's force
+	 */
 	private int Force;
+	
+	/**
+	 * The player's agility
+	 */
 	private int Agilite;
+	
+	/**
+	 * The player's intelligence
+	 */
 	private int Intelligence;
 
 	/**
