@@ -2,9 +2,7 @@ package pt.marquesmota;
 
 /**
  * Class for handling the choices asked to the player
- * <p>
- * </p>
- * @author      Paul Marques Mota <pmarquesmota@gmail.com>
+ * @author      Paul Marques Mota (pmarquesmota@gmail.com)
  * @version     1.0
  */
 public class Choose {

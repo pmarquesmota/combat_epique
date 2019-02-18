@@ -5,7 +5,7 @@ package pt.marquesmota;
  * <p>
  * Creates the character object using the superclass constructor, manages the attacks, and print the object.
  * </p>
- * @author      Paul Marques Mota <pmarquesmota@gmail.com>
+ * @author      Paul Marques Mota (pmarquesmota@gmail.com)
  * @version     1.0
  */
 public class Mage extends Joueur{
