@@ -5,7 +5,7 @@ package pt.marquesmota;
  * <p>
  * It returns 3 parameters with a string describing the effect, the damage taken and the damage given.
  * </p>
- * @author      Paul Marques Mota <pmarquesmota@gmail.com>
+ * @author      Paul Marques Mota (pmarquesmota@gmail.com)
  * @version     1.0
  */
 public class Effet {

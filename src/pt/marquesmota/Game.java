@@ -5,7 +5,11 @@ import java.util.Scanner;
 /**
  * class which is used to manage the abstract high level view of the game.
  * 
+<<<<<<< HEAD
  * @author Paul Marques Mota <paul@marquesmota.pt>
+=======
+ * @author Paul Marques Mota (pmarquesmota@gmail.com)
+>>>>>>> 1ede7807a0cf67f7cfde221003adf43764e4d5a8
  * @version 1.0
  */
 public class Game {
@@ -39,6 +43,54 @@ public class Game {
 	 * The player's intelligence
 	 */
 	private int Intelligence;
+
+	public static Scanner getSc() {
+		return sc;
+	}
+
+	public static void setSc(Scanner sc) {
+		Game.sc = sc;
+	}
+
+	public int getClasse() {
+		return Classe;
+	}
+
+	public void setClasse(int classe) {
+		Classe = classe;
+	}
+
+	public int getNiveau() {
+		return Niveau;
+	}
+
+	public void setNiveau(int niveau) {
+		Niveau = niveau;
+	}
+
+	public int getForce() {
+		return Force;
+	}
+
+	public void setForce(int force) {
+		Force = force;
+	}
+
+	public int getAgilite() {
+		return Agilite;
+	}
+
+	public void setAgilite(int agilite) {
+		Agilite = agilite;
+	}
+
+	public int getIntelligence() {
+		return Intelligence;
+	}
+
+	public void setIntelligence(int intelligence) {
+		Intelligence = intelligence;
+	}
 
 	/**
 	 * Creates the characters and pass the execution to run_game to carry on to the
