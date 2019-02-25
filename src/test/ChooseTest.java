@@ -23,10 +23,10 @@ public class ChooseTest {
 		// Tell Java to use our special stream
 		System.setOut(ps);
 
+		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
 		Scanner s = new Scanner(System.in);
 		Game.setSc(s);
 
-		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
 		int result = Choose.choice("Question", 1, 3);
 
 		// Put things back
