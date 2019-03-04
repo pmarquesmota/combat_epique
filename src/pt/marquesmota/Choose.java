@@ -17,8 +17,7 @@ public class Choose {
 	 */
 	public static int choice(String question, int minimum, int maximum) {
 		int i = 0;
-		Scanner s = new Scanner(System.in);
-
+		Scanner s = Game.getSc();
 		do {
 			try {
 				System.out.println(question);
