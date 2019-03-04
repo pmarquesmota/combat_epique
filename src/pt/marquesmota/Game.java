@@ -140,17 +140,43 @@ public class Game {
 		Joueur unJoueur;
 		System.out.println("Création du personnage du " + nouveauNom);
 
-		choose_character();
 		unJoueur = create_character_object(nouveauNom);
 		System.out.println(unJoueur.toString());
 
 		return unJoueur;
 	}
 
+	// Interface for the array of methods
+	interface CharacterAction {
+		Joueur Create(String nouveauNom, int Niveau, int Force, int Agilite, int Intelligence);
+	}
+	
+	// Array of methods which implement the Adapter pattern
+	private CharacterAction[] CharacterActions = new CharacterAction[] {
+	        new CharacterAction()	{
+	        							public Joueur Create(String nouveauNom, int Niveau, int Force, int Agilite, int Intelligence) {
+	        								return new Guerrier(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
+	        							}
+	        						},
+	        new CharacterAction()	{
+	        							public Joueur Create(String nouveauNom, int Niveau, int Force, int Agilite, int Intelligence) {
+	        								return new Rodeur(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
+	        							}
+	        						},
+	        new CharacterAction()	{
+	        							public Joueur Create(String nouveauNom, int Niveau, int Force, int Agilite, int Intelligence) {
+	        								return new Mage(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
+	        							}
+	        						}
+	    };
+	
 	/**
-	 * Choose the character's characteristics
+	 * Create the character's object
+	 * @param nouveauNom
+	 * @return an object representing the player
 	 */
-	public void choose_character() {
+	public Joueur create_character_object(String Nom) {
+		
 		do {
 			Classe = Choose.choice(
 					"Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1, 3);
@@ -163,27 +189,8 @@ public class Game {
 						"Attention le total force + agilité + intelligence doit être égal au niveau du joueur. Veuillez recommencer, s'il vous plait.");
 			}
 		} while (Force + Agilite + Intelligence != Niveau);
-	}
 
-	/**
-	 * Create the character's object
-	 * @param nouveauNom
-	 * @return an object representing the player
-	 */
-	public Joueur create_character_object(String nouveauNom) {
-		Joueur nouveauJoueur = null;
-
-		switch (Classe) {
-		case 1:
-			nouveauJoueur = new Guerrier(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
-			break;
-		case 2:
-			nouveauJoueur = new Rodeur(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
-			break;
-		case 3:
-			nouveauJoueur = new Mage(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
-			break;
-		}
-		return nouveauJoueur;
+		// Selects the method in the array of methods according to the character's Class
+		return CharacterActions[Classe - 1].Create(Nom, Niveau, Force, Agilite, Intelligence);
 	}
 }

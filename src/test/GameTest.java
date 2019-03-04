@@ -107,7 +107,7 @@ public class GameTest {
 		Game.setSc(s);
 
 		Game g = new Game();
-		g.choose_character();
+		g.create_character_object("Joueur 1");
 
 		// Put things back
 		System.out.flush();
@@ -212,7 +212,7 @@ public class GameTest {
 		Scanner s = new Scanner(System.in);
 		Game.setSc(s);
 
-		g.choose_character();
+		g.create_character_object("Joueur 1");
 
 		// Put things back
 		System.out.flush();
