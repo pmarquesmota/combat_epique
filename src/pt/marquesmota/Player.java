@@ -8,27 +8,27 @@ package pt.marquesmota;
  * @author      Paul Marques Mota (pmarquesmota@gmail.com)
  * @version     1.0
  */
-public abstract class Joueur {
+public abstract class Player {
 	/**
 	 * The level of the character.
 	 */
-	private int Niveau;
+	private int Level;
 	/**
 	 * The life of the character.
 	 */
-	private int Vie;
+	private int Life;
 	/**
 	 * The initial life of the character.
 	 */
-	private int VieInitiale; 
+	private int InitialLife; 
 	/**
 	 * The force of the character.
 	 */
-	private int Force;
+	private int Strength;
 	/**
 	 * The agility of the character.
 	 */
-	private int Agilite; 
+	private int Agility; 
 	/**
 	 * The intelligence of the character.
 	 */
@@ -36,7 +36,7 @@ public abstract class Joueur {
 	/**
 	 * The name of the character.
 	 */
-	private String Nom;
+	private String Name;
 	
 	/**
 	 * The constructor of the class, creates a new character with the specified attributes
@@ -47,46 +47,46 @@ public abstract class Joueur {
 	 * @param nouvelleAgilite character's agility
 	 * @param nouvelleIntelligence character's intelligence
 	 */
-	Joueur(String nouveauNom, int nouveauNiveau, int nouvelleVie, int nouvelleForce, int nouvelleAgilite, int nouvelleIntelligence) {
-		Nom = nouveauNom;
-		Niveau = nouveauNiveau;
-		VieInitiale = nouvelleVie;
-		Vie = nouvelleVie;
-		Force = nouvelleForce;
-		Agilite = nouvelleAgilite;
-		Intelligence = nouvelleIntelligence;
+	Player(String newName, int newLevel, int newLife, int newStrength, int newAgility, int newIntelligence) {
+		Name = newName;
+		Level = newLevel;
+		InitialLife = newLife;
+		Life = newLife;
+		Strength = newStrength;
+		Agility = newAgility;
+		Intelligence = newIntelligence;
 	}
 	
 	/**
 	 * 
 	 * @return the name of the character
 	 */
-	public String getNom() {
-		return Nom;
+	public String getName() {
+		return Name;
 	}
 	
 	/**
 	 * 
 	 * @return the force of the character
 	 */
-	public int getForce() {
-		return Force;
+	public int getStrength() {
+		return Strength;
 	}
 		
 	/**
 	 * 
 	 * @return the agility of the character
 	 */
-	public int getAgilite() {
-		return Agilite;
+	public int getAgility() {
+		return Agility;
 	}
 		
 	/**
 	 * 
 	 * @param newAgilite Sets the character agility
 	 */
-	public void setAgilite(int newAgilite) {
-		Agilite = newAgilite;
+	public void setAgility(int newAgility) {
+		Agility = newAgility;
 	}
 		
 	/**
@@ -100,30 +100,30 @@ public abstract class Joueur {
 	/**
 	 *  @return player level
 	 */
-	public int getNiveau() {
-		return Niveau;
+	public int getLevel() {
+		return Level;
 	}
 		
 	/**
 	 *  @return player life
 	 */
-	public int getVie() {
-		return Vie;
+	public int getLife() {
+		return Life;
 	}
 
 	/**
 	 *  @return player initial life
 	 */
-	public int getVieInitiale() {
-		return VieInitiale;
+	public int getInitialLife() {
+		return InitialLife;
 	}
 	
 	/**
 	 * 
 	 * @param nouvelleVie Sets the character life
 	 */
-	public void setVie(int nouvelleVie) {
-		Vie = nouvelleVie;
+	public void setLife(int newLife) {
+		Life = newLife;
 	}
 
 	/**
@@ -133,17 +133,18 @@ public abstract class Joueur {
 	 * </p>
 	 * @param unJoueur the character object
 	 */
-	public void attaque(Joueur unJoueur) {	
-		Effet resultat;
-		int choix = Choose.choice(getNom()+" ("+getVie()+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale)", 1, 2);
+	public void attack(Player aPlayer) {	
+		Effect result;
+		
+		int choix = Choose.choice(getName()+" ("+getLife()+" Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale)", 1, 2);
 		if(choix == 1) {
-			resultat = attaque_basique();
+			result = basic_attack();
 		} else {
-			resultat = attaque_speciale();
+			result = special_attack();
 		}
-		System.out.println(resultat.getChaine());
-		perdVie(resultat.getDommageAutre(), unJoueur);
-		perdVie(resultat.getDommageSoi(), this);
+		System.out.println(result.getDisplay());
+		loseLife(result.getOtherDamage(), aPlayer);
+		loseLife(result.getSelfDamage(), this);
 	}
 	
 	/**
@@ -151,12 +152,12 @@ public abstract class Joueur {
 	 * @param dommage damage taken
 	 * @param unJoueur the character object
 	 */
-	public void perdVie(int dommage, Joueur unJoueur) {
-		if(dommage > 0) {
-			System.out.println(unJoueur.getNom()+" perd "+dommage+" points de vie");
-			unJoueur.setVie(unJoueur.getVie() - dommage);
-			if(unJoueur.getVie() <= 0) {
-				System.out.println(unJoueur.getNom() +" est mort");
+	public void loseLife(int damage, Player aPlayer) {
+		if(damage > 0) {
+			System.out.println(aPlayer.getName()+" perd "+damage+" points de vie");
+			aPlayer.setLife(aPlayer.getLife() - damage);
+			if(aPlayer.getLife() <= 0) {
+				System.out.println(aPlayer.getName() +" est mort");
 			}
 		}
 	}
@@ -166,14 +167,14 @@ public abstract class Joueur {
 	 * @return an object which contains the String description, damage taken and damage given
 	 * @see Effet
 	 */
-	public abstract Effet attaque_basique();
+	public abstract Effect basic_attack();
 	
 	/**
 	 * A special attack
 	 * @return an object which contains the String description, damage taken and damage given
 	 * @see Effet
 	 */
-	public abstract Effet attaque_speciale();
+	public abstract Effect special_attack();
 	
 	/**
 	 * Print the object.

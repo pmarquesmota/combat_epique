@@ -28,8 +28,8 @@ public class GameTest {
 		Game.setSc(s);
 
 		Game g = new Game();
-		Joueur jtest = g.create_character("Joueur 1");
-		Joueur j = new Guerrier("Joueur 1", 10, 50, 10, 0, 0);
+		Player jtest = g.create_character("Joueur 1");
+		Player j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 
 		// Put things back
 		System.out.flush();
@@ -54,8 +54,8 @@ public class GameTest {
 		Game.setSc(s);
 
 		Game g = new Game();
-		Joueur jtest = g.create_character("Joueur 1");
-		Joueur j = new Rodeur("Joueur 1", 10, 50, 0, 10, 0);
+		Player jtest = g.create_character("Joueur 1");
+		Player j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 
 		// Put things back
 		System.out.flush();
@@ -81,8 +81,8 @@ public class GameTest {
 
 		Game g = new Game();
 
-		Joueur jtest = g.create_character("Joueur 1");
-		Joueur j = new Mage("Joueur 1", 10, 50, 0, 0, 10);
+		Player jtest = g.create_character("Joueur 1");
+		Player j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 
 		// Put things back
 		System.out.flush();
@@ -113,11 +113,11 @@ public class GameTest {
 		System.out.flush();
 		System.setOut(old);
 
-		assertEquals(g.getClasse(),1);
-		assertEquals(g.getNiveau(),10);
-		assertEquals(g.getForce(),10);
-		assertEquals(g.getAgilite(),0);
-		assertEquals(g.getIntelligence(),0);
+		assertEquals(g.getMyClass(),1);
+		assertEquals(g.getMyLevel(),10);
+		assertEquals(g.getMyStrength(),10);
+		assertEquals(g.getMyAgility(),0);
+		assertEquals(g.getMyIntelligence(),0);
 	}
 	
 	public String build_request_to_choose_character_as_Guerrier_with_invalid_answers() {

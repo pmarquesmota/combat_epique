@@ -17,28 +17,29 @@ public class Game {
 
 	/**
 	 * The player's class
+	 * Note: class is a reserved word.
 	 */
-	private int Classe;
+	private int myClass;
 	
 	/**
 	 * The player's level
 	 */
-	private int Niveau;
+	private int myLevel;
 	
 	/**
-	 * The player's force
+	 * The player's strength
 	 */
-	private int Force;
+	private int myStrength;
 	
 	/**
 	 * The player's agility
 	 */
-	private int Agilite;
+	private int myAgility;
 	
 	/**
 	 * The player's intelligence
 	 */
-	private int Intelligence;
+	private int myIntelligence;
 
 	public static Scanner getSc() {
 		return sc;
@@ -48,44 +49,44 @@ public class Game {
 		Game.sc = sc;
 	}
 
-	public int getClasse() {
-		return Classe;
+	public int getMyClass() {
+		return myClass;
 	}
 
-	public void setClasse(int classe) {
-		Classe = classe;
+	public void setMyClass(int thisClass) {
+		myClass = thisClass;
 	}
 
-	public int getNiveau() {
-		return Niveau;
+	public int getMyLevel() {
+		return myLevel;
 	}
 
-	public void setNiveau(int niveau) {
-		Niveau = niveau;
+	public void setMyLevel(int level) {
+		myLevel = level;
 	}
 
-	public int getForce() {
-		return Force;
+	public int getMyStrength() {
+		return myStrength;
 	}
 
-	public void setForce(int force) {
-		Force = force;
+	public void setMyStrength(int strength) {
+		myStrength = strength;
 	}
 
-	public int getAgilite() {
-		return Agilite;
+	public int getMyAgility() {
+		return myAgility;
 	}
 
-	public void setAgilite(int agilite) {
-		Agilite = agilite;
+	public void setMyAgility(int agility) {
+		myAgility = agility;
 	}
 
-	public int getIntelligence() {
-		return Intelligence;
+	public int getMyIntelligence() {
+		return myIntelligence;
 	}
 
-	public void setIntelligence(int intelligence) {
-		Intelligence = intelligence;
+	public void setMyIntelligence(int intelligence) {
+		myIntelligence = intelligence;
 	}
 
 	/**
@@ -93,14 +94,14 @@ public class Game {
 	 * main loop of the game.
 	 */
 	public void start() {
-		Joueur Joueur1, Joueur2;
+		Player Player1, Player2;
 
 		sc = new Scanner(System.in);
 
-		Joueur1 = create_character("Joueur 1");
-		Joueur2 = create_character("Joueur 2");
+		Player1 = create_character("Joueur 1");
+		Player2 = create_character("Joueur 2");
 
-		run_game(Joueur1, Joueur2);
+		run_game(Player1, Player2);
 	}
 
 	/**
@@ -112,14 +113,14 @@ public class Game {
 	 * @param joueur1 the first character
 	 * @param joueur2 the second character
 	 */
-	private void run_game(Joueur joueur1, Joueur joueur2) {
-		while (joueur1.getVie() > 0 && joueur2.getVie() > 0) {
-			joueur1.attaque(joueur2);
-			if (joueur1.getVie() > 0 && joueur2.getVie() > 0) {
-				joueur2.attaque(joueur1);
+	private void run_game(Player player1, Player player2) {
+		while (player1.getLife() > 0 && player2.getLife() > 0) {
+			player1.attack(player2);
+			if (player1.getLife() > 0 && player2.getLife() > 0) {
+				player2.attack(player1);
 			}
 		}
-		if (joueur1.getVie() <= 0) {
+		if (player1.getLife() <= 0) {
 			System.out.println("Joueur 1 a perdu !");
 		} else {
 			System.out.println("Joueur 2 a perdu !");
@@ -136,36 +137,36 @@ public class Game {
 	 * @param nouveauNom the name of the character.
 	 * @return an object representing the character chosen.
 	 */
-	public Joueur create_character(String nouveauNom) {
-		Joueur unJoueur;
-		System.out.println("Création du personnage du " + nouveauNom);
+	public Player create_character(String newName) {
+		Player aPlayer;
+		System.out.println("Création du personnage du " + newName);
 
-		unJoueur = create_character_object(nouveauNom);
-		System.out.println(unJoueur.toString());
+		aPlayer = create_character_object(newName);
+		System.out.println(aPlayer.toString());
 
-		return unJoueur;
+		return aPlayer;
 	}
 
 	// Interface for the array of methods
 	interface CharacterAction {
-		Joueur Create(String nouveauNom, int Niveau, int Force, int Agilite, int Intelligence);
+		Player Create(String newName, int Level, int Strength, int Agility, int Intelligence);
 	}
 	
 	// Array of methods which implement the Adapter pattern
 	private CharacterAction[] CharacterActions = new CharacterAction[] {
 	        new CharacterAction()	{
-	        							public Joueur Create(String nouveauNom, int Niveau, int Force, int Agilite, int Intelligence) {
-	        								return new Guerrier(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
+	        							public Player Create(String newName, int Level, int Strength, int Agility, int Intelligence) {
+	        								return new Warrior(newName, Level, Level * 5, Strength, Agility, Intelligence);
 	        							}
 	        						},
 	        new CharacterAction()	{
-	        							public Joueur Create(String nouveauNom, int Niveau, int Force, int Agilite, int Intelligence) {
-	        								return new Rodeur(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
+	        							public Player Create(String newName, int Level, int Strength, int Agility, int Intelligence) {
+	        								return new Ranger(newName, Level, Level * 5, Strength, Agility, Intelligence);
 	        							}
 	        						},
 	        new CharacterAction()	{
-	        							public Joueur Create(String nouveauNom, int Niveau, int Force, int Agilite, int Intelligence) {
-	        								return new Mage(nouveauNom, Niveau, Niveau * 5, Force, Agilite, Intelligence);
+	        							public Player Create(String newName, int Level, int Strength, int Agility, int Intelligence) {
+	        								return new Wizard(newName, Level, Level * 5, Strength, Agility, Intelligence);
 	        							}
 	        						}
 	    };
@@ -175,22 +176,22 @@ public class Game {
 	 * @param nouveauNom
 	 * @return an object representing the player
 	 */
-	public Joueur create_character_object(String Nom) {
+	public Player create_character_object(String name) {
 		
 		do {
-			Classe = Choose.choice(
+			myClass = Choose.choice(
 					"Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1, 3);
-			Niveau = Choose.choice("Niveau du personnage ?", 1, 100);
-			Force = Choose.choice("Force du personnage ?", 0, 100);
-			Agilite = Choose.choice("Agilite du personnage ?", 0, 100);
-			Intelligence = Choose.choice("Intelligence du personnage ?", 0, 100);
-			if (Force + Agilite + Intelligence != Niveau) {
+			myLevel = Choose.choice("Niveau du personnage ?", 1, 100);
+			myStrength = Choose.choice("Force du personnage ?", 0, 100);
+			myAgility = Choose.choice("Agilite du personnage ?", 0, 100);
+			myIntelligence = Choose.choice("Intelligence du personnage ?", 0, 100);
+			if (myStrength + myAgility + myIntelligence != myLevel) {
 				System.out.println(
 						"Attention le total force + agilité + intelligence doit être égal au niveau du joueur. Veuillez recommencer, s'il vous plait.");
 			}
-		} while (Force + Agilite + Intelligence != Niveau);
+		} while (myStrength + myAgility + myIntelligence != myLevel);
 
 		// Selects the method in the array of methods according to the character's Class
-		return CharacterActions[Classe - 1].Create(Nom, Niveau, Force, Agilite, Intelligence);
+		return CharacterActions[myClass - 1].Create(name, myLevel, myStrength, myAgility, myIntelligence);
 	}
 }

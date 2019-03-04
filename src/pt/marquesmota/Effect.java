@@ -8,21 +8,21 @@ package pt.marquesmota;
  * @author      Paul Marques Mota (pmarquesmota@gmail.com)
  * @version     1.0
  */
-public class Effet {
+public class Effect {
 	/**
 	 * A String describing the effect.
 	 */
-	private String Chaine;
+	private String display;
 	
 	/**
 	 * Damage taken.
 	 */
-	private int DommageSoi;
+	private int selfDamage;
 	
 	/**
 	 * Damage given.
 	 */
-	private int DommageAutre;
+	private int otherDamage;
 	
 	/**
 	 * The constructor of the class.
@@ -33,33 +33,33 @@ public class Effet {
 	 * @param initDommageSoi
 	 * @param initDommageAutre
 	 */
-	public Effet(String initChaine, int initDommageSoi, int initDommageAutre) {
-		Chaine = initChaine;
-		DommageSoi = initDommageSoi;
-		DommageAutre = initDommageAutre;
+	public Effect(String initDisplay, int initSelfDamage, int initOtherDamage) {
+		display = initDisplay;
+		selfDamage = initSelfDamage;
+		otherDamage = initOtherDamage;
 	}
 	
 	/**
 	 * A getter for the description of the effect.
 	 * @return the String describing the effect.
 	 */
-	public String getChaine() {
-		return Chaine;
+	public String getDisplay() {
+		return display;
 	}
 	
 	/**
 	 * A getter for the damage taken.
 	 * @return the damage taken.
 	 */
-	public int getDommageSoi() {
-		return DommageSoi;
+	public int getSelfDamage() {
+		return selfDamage;
 	}
 	
 	/**
 	 * A getter for the damage given. 
 	 * @return the damage given.
 	 */
-	public int getDommageAutre() {
-		return DommageAutre;
+	public int getOtherDamage() {
+		return otherDamage;
 	}
 }
