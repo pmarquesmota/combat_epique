@@ -5,9 +5,6 @@ import static org.junit.Assert.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Scanner;
-
-import org.hamcrest.BaseMatcher;
 
 import org.junit.Test;
 import pt.marquesmota.*;
@@ -57,9 +54,6 @@ public class GameTest {
 	public void choose_character_as_Guerrier_with_Force_10() {
 		System.setIn(new ByteArrayInputStream("1\n10\n10\n0\n0\n".getBytes()));
 		
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
-
 		System.setIn(new ByteArrayInputStream("1\n10\n10\n10\n10\n1\n10\n10\n0\n0\n".getBytes()));
 		// Create a stream to hold the output
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();

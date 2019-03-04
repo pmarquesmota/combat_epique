@@ -162,7 +162,7 @@ public class Game {
 				System.out.println(
 						"Attention le total force + agilité + intelligence doit être égal au niveau du joueur. Veuillez recommencer, s'il vous plait.");
 			}
-		} while (Force + Agilite + Intelligence == Niveau);
+		} while (Force + Agilite + Intelligence != Niveau);
 	}
 
 	/**

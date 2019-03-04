@@ -1,5 +1,7 @@
 package pt.marquesmota;
 
+import java.util.Scanner;
+
 /**
  * Class for handling the choices asked to the player
  * @author      Paul Marques Mota (pmarquesmota@gmail.com)
@@ -15,19 +17,20 @@ public class Choose {
 	 */
 	public static int choice(String question, int minimum, int maximum) {
 		int i = 0;
-		
+		Scanner s = new Scanner(System.in);
+
 		do {
 			try {
 				System.out.println(question);
-				i = Game.sc.nextInt();
+				i = s.nextInt();
 				if (i<minimum || i>maximum) {
 					System.out.println("Choix incorrect. Veuillez recommencer");
 				}
 			} catch(Exception e) {
 				System.out.println("Choix incorrect. Veuillez recommencer et saisir un nombre");
 				//On vide la ligne avant d'en lire une autre
-				if(Game.sc.hasNextLine()) {
-					Game.sc.nextLine();
+				if(s.hasNextLine()) {
+					s.nextLine();
 				}
 				i=0;
 			}
