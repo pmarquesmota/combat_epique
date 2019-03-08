@@ -110,8 +110,6 @@ public class WarriorTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		Warrior j1 = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		Warrior j2 = new Warrior("Joueur 2", 10, 50, 10, 0, 0);
@@ -137,8 +135,6 @@ public class WarriorTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("2\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		Warrior j1 = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		Warrior j2 = new Warrior("Joueur 2", 10, 50, 10, 0, 0);

@@ -111,8 +111,6 @@ public class WizardTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		Wizard j1 = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		Wizard j2 = new Wizard("Joueur 2", 10, 50, 0, 0, 10);
@@ -138,8 +136,6 @@ public class WizardTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("2\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		Wizard j1 = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		Wizard j2 = new Wizard("Joueur 2", 10, 50, 0, 0, 10);

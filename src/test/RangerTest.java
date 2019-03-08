@@ -113,8 +113,6 @@ public class RangerTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		Ranger j1 = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		Ranger j2 = new Ranger("Joueur 2", 10, 50, 0, 10, 0);
@@ -140,8 +138,6 @@ public class RangerTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("2\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		Ranger j1 = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		Ranger j2 = new Ranger("Joueur 2", 10, 50, 0, 10, 0);
