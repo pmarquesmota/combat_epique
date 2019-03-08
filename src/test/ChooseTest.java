@@ -23,8 +23,6 @@ public class ChooseTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		int result = Choose.choice("Question", 1, 3);
 
@@ -47,8 +45,6 @@ public class ChooseTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("10\n1\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		int result = Choose.choice("Question", 1, 3);
 
@@ -71,8 +67,6 @@ public class ChooseTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("a\n1\n".getBytes()));
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
 		int result = Choose.choice("Question", 1, 3);
 
