@@ -41,20 +41,12 @@ public class RangerTest {
 	
 	@Test
 	public void test_loseLife_nothing() {
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream("");
 
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		j.loseLife(0, j);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		assertEquals(j.getLife(), 50);
 		assertEquals(baos.toString(), "");
@@ -62,20 +54,12 @@ public class RangerTest {
 	
 	@Test
 	public void test_loseLife_little() {
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream("");
 
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		j.loseLife(10, j);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		assertEquals(j.getLife(), 40);
 		assertEquals(baos.toString(), "Joueur 1 perd 10 points de vie\n");
@@ -83,20 +67,12 @@ public class RangerTest {
 	
 	@Test
 	public void test_loseLife_all() {
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream("");
 
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		j.loseLife(50, j);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		assertEquals(j.getLife(), 0);
 		assertEquals(baos.toString(), "Joueur 1 perd 50 points de vie\nJoueur 1 est mort\n");
@@ -104,24 +80,15 @@ public class RangerTest {
 	
 	@Test
 	public void test_attack_basic_attack() {
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream("1\n");
 
-		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
 		Game.s = new Scanner(System.in);
 
 		Ranger j1 = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		Ranger j2 = new Ranger("Joueur 2", 10, 50, 0, 10, 0);
 		j1.attack(j2);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		assertEquals(j1.getLife(), 50);
 		assertEquals(j2.getLife(), 40);
@@ -130,24 +97,15 @@ public class RangerTest {
 	
 	@Test
 	public void test_attack_special_attack() {
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream("2\n");
 
-		System.setIn(new ByteArrayInputStream("2\n".getBytes()));
 		Game.s = new Scanner(System.in);
 
 		Ranger j1 = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		Ranger j2 = new Ranger("Joueur 2", 10, 50, 0, 10, 0);
 		j1.attack(j2);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		assertEquals(j1.getLife(), 50);
 		assertEquals(j2.getLife(), 50);

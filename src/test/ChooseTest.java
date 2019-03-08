@@ -1,8 +1,6 @@
 package test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
@@ -14,22 +12,13 @@ import pt.marquesmota.*;
 public class ChooseTest {
 	@Test
 	public void test_choice_with_correct_input() {
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream("1\n");
 
-		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
 		Game.s = new Scanner(System.in);
 
 		int result = Choose.choice("Question", 1, 3);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		assertEquals(baos.toString(),"Question\n");
 		assertTrue(result == 1);
@@ -37,22 +26,13 @@ public class ChooseTest {
 
 	@Test
 	public void test_choice_with_incorrect_numeric_input() {
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream("10\n1\n");
 
-		System.setIn(new ByteArrayInputStream("10\n1\n".getBytes()));
 		Game.s = new Scanner(System.in);
 
 		int result = Choose.choice("Question", 1, 3);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		assertEquals(baos.toString(),"Question\nChoix incorrect. Veuillez recommencer\nQuestion\n");
 		assertTrue(result == 1);
@@ -60,22 +40,13 @@ public class ChooseTest {
 
 	@Test
 	public void test_choice_with_incorrect_string_input() {
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream("a\n1\n");
 
-		System.setIn(new ByteArrayInputStream("a\n1\n".getBytes()));
 		Game.s = new Scanner(System.in);
 
 		int result = Choose.choice("Question", 1, 3);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		assertEquals(baos.toString(),"Question\nChoix incorrect. Veuillez recommencer et saisir un nombre\nQuestion\n");
 		assertTrue(result == 1);

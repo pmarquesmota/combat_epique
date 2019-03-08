@@ -28,24 +28,15 @@ public class GameTest {
 	
 	@Test
 	public void test_create_character_as_Warrior() {
-		System.setIn(new ByteArrayInputStream("\n1\n10\n10\n0\n0\n".getBytes()));
+		ByteArrayOutputStream baos = MyStream.RedirectStream("1\n10\n10\n0\n0\n");
+
 		String answer = Build_answer_to_test_create_character_as_Warrior();
 		
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
-
 		Game.s = new Scanner(System.in);
 		Player ptest = Game.create_character("Joueur 1");
 		Player p = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 		
 		assertEquals(ptest.toString(), p.toString());
 		assertEquals(baos.toString(), answer);
@@ -67,24 +58,15 @@ public class GameTest {
 	
 	@Test
 	public void test_create_character_as_Ranger() {
-		System.setIn(new ByteArrayInputStream("2\n10\n0\n10\n0\n".getBytes()));
-		String answer = Build_answer_to_test_create_character_as_Ranger();
+		ByteArrayOutputStream baos = MyStream.RedirectStream("2\n10\n0\n10\n0\n");
 
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		String answer = Build_answer_to_test_create_character_as_Ranger();
 		
 		Game.s = new Scanner(System.in);
 		Player ptest = Game.create_character("Joueur 1");
 		Player p = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 		
 		assertEquals(ptest.toString(), p.toString());
 		assertEquals(baos.toString(), answer);
@@ -106,24 +88,14 @@ public class GameTest {
 	
 	@Test
 	public void test_create_character_as_Wizard() {
-		System.setIn(new ByteArrayInputStream("3\n10\n0\n0\n10\n".getBytes()));
+		ByteArrayOutputStream baos = MyStream.RedirectStream("3\n10\n0\n0\n10\n");
 		String answer = Build_answer_to_test_create_character_as_Wizard();
-
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
 		
 		Game.s = new Scanner(System.in);
 		Player ptest = Game.create_character("Joueur 1");
 		Player p = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 		
 		assertEquals(ptest.toString(), p.toString());
 		assertEquals(baos.toString(), answer);
@@ -174,24 +146,14 @@ public class GameTest {
 	@Test
 	public void choose_character_as_Warrior_with_Strength_10() {
 		String request = build_request_to_choose_character_as_Warrior_with_Strength_10();
-
-		System.setIn(new ByteArrayInputStream(request.getBytes()));
-		
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
 
 		Game.s = new Scanner(System.in);
+
 		Player ptest = Game.create_character_object("Joueur 1");
 		Player p = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		String answer = build_answer_to_choose_character_as_Warrior_with_Strength_10();
 		assertEquals(baos.toString(),answer);
@@ -277,22 +239,13 @@ public class GameTest {
 	@Test
 	public void choose_character_as_Guerrier_with_invalid_answers() {
 		String request = build_request_to_choose_character_as_Warrior_with_invalid_answers();
-				
-		System.setIn(new ByteArrayInputStream(request.getBytes()));
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
+		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
 
 		Game.s = new Scanner(System.in);
+
 		Player player = Game.create_character_object("Joueur 1");
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
+		MyStream.ResetStream();
 
 		String answer = build_answer_to_choose_character_as_Warrior_with_invalid_answers();
 		assertEquals(baos.toString(), answer);

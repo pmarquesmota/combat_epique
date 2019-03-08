@@ -3,9 +3,7 @@ package test;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.Scanner;
 
 import pt.marquesmota.*;
@@ -129,25 +127,15 @@ public class MainTest {
 	
 	@Test
 	public void test_Main() {
-		String answer = build_answer_to_test_Main();
+		ByteArrayOutputStream baos = MyStream.RedirectStream(build_answer_to_test_Main());
 		
-		System.setIn(new ByteArrayInputStream(answer.getBytes()));
-		// Create a stream to hold the output
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		// IMPORTANT: Save the old System.out!
-		PrintStream old = System.out;
-		// Tell Java to use our special stream
-		System.setOut(ps);
 		Game.s = new Scanner(System.in);
 
 		String[] arg = {};
 		Main.main(arg);
 
-		// Put things back
-		System.out.flush();
-		System.setOut(old);
-
+		MyStream.ResetStream();
+		
 		String request = build_request_to_test_Main();
 		assertEquals(baos.toString(), request);
 		
