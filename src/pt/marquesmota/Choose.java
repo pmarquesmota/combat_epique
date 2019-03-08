@@ -17,20 +17,19 @@ public class Choose {
 	 */
 	public static int choice(String question, int minimum, int maximum) {
 		int line = 0;
-		Scanner s = new Scanner(System.in);
 		
 		do {
 			try {
 				System.out.println(question);
-				line = s.nextInt();
+				line = Game.s.nextInt();
 				if (line < minimum || line > maximum) {
 					System.out.println("Choix incorrect. Veuillez recommencer");
 				}
 			} catch(Exception e) {
 				System.out.println("Choix incorrect. Veuillez recommencer et saisir un nombre");
 				//Flush line before reading another
-				if(s.hasNextLine()) {
-					s.nextLine();
+				if(Game.s.hasNextLine()) {
+					Game.s.nextLine();
 				}
 				line = 0;
 			}
