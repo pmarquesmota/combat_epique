@@ -16,24 +16,25 @@ public class Choose {
 	 * @return The number chosen by the user.
 	 */
 	public static int choice(String question, int minimum, int maximum) {
-		int i = 0;
-		Scanner s = Game.getSc();
+		int line = 0;
+		Scanner s = new Scanner(System.in);
+		
 		do {
 			try {
 				System.out.println(question);
-				i = s.nextInt();
-				if (i<minimum || i>maximum) {
+				line = s.nextInt();
+				if (line < minimum || line > maximum) {
 					System.out.println("Choix incorrect. Veuillez recommencer");
 				}
 			} catch(Exception e) {
 				System.out.println("Choix incorrect. Veuillez recommencer et saisir un nombre");
-				//On vide la ligne avant d'en lire une autre
+				//Flush line before reading another
 				if(s.hasNextLine()) {
 					s.nextLine();
 				}
-				i=0;
+				line = 0;
 			}
-		} while (i<minimum || i>maximum);
-		return i;
+		} while (line < minimum || line > maximum);
+		return line;
 	}
 }
