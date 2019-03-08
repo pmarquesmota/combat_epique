@@ -12,9 +12,24 @@ import pt.marquesmota.*;
 
 public class GameTest {
 
+	String Build_answer_to_test_create_character_as_Warrior() {
+		String a = "";
+		
+		a = a + "Création du personnage du Joueur 1\n";
+		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
+		a = a + "Niveau du personnage ?\n";
+		a = a + "Force du personnage ?\n";
+		a = a + "Agilité du personnage ?\n";
+		a = a + "Intelligence du personnage ?\n";
+		a = a + "Woarg je suis le Guerrier Joueur 1 niveau 10 je possède 50 de vitalité, 10 de force, 0 d'agilité et 0 d'intelligence !\n";
+
+		return a;
+	}
+	
 	@Test
-	public void test_create_character_is_Guerrier() {
-		System.setIn(new ByteArrayInputStream("1\n10\n10\n0\n0\n".getBytes()));
+	public void test_create_character_as_Warrior() {
+		System.setIn(new ByteArrayInputStream("\n1\n10\n10\n0\n0\n".getBytes()));
+		String answer = Build_answer_to_test_create_character_as_Warrior();
 		
 		// Create a stream to hold the output
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -23,25 +38,38 @@ public class GameTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
-		
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
-		Game g = new Game();
-		Player jtest = g.create_character("Joueur 1");
-		Player j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
+		Game.s = new Scanner(System.in);
+		Player ptest = Game.create_character("Joueur 1");
+		Player p = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 
 		// Put things back
 		System.out.flush();
 		System.setOut(old);
 		
-		assertEquals(jtest.toString(), j.toString());
+		assertEquals(ptest.toString(), p.toString());
+		assertEquals(baos.toString(), answer);
 	}
 
+	String Build_answer_to_test_create_character_as_Ranger() {
+		String a = "";
+		
+		a = a + "Création du personnage du Joueur 1\n";
+		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
+		a = a + "Niveau du personnage ?\n";
+		a = a + "Force du personnage ?\n";
+		a = a + "Agilité du personnage ?\n";
+		a = a + "Intelligence du personnage ?\n";
+		a = a + "Woof je suis le Rodeur Joueur 1 niveau 10 je possède 50 de vitalité, 0 de force, 10 d'agilité et 0 d'intelligence !\n";
+
+		return a;
+	}
+	
 	@Test
-	public void test_create_character_is_Rodeur() {
+	public void test_create_character_as_Ranger() {
 		System.setIn(new ByteArrayInputStream("2\n10\n0\n10\n0\n".getBytes()));
-		
+		String answer = Build_answer_to_test_create_character_as_Ranger();
+
 		// Create a stream to hold the output
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
@@ -50,24 +78,37 @@ public class GameTest {
 		// Tell Java to use our special stream
 		System.setOut(ps);
 		
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
-
-		Game g = new Game();
-		Player jtest = g.create_character("Joueur 1");
-		Player j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
+		Game.s = new Scanner(System.in);
+		Player ptest = Game.create_character("Joueur 1");
+		Player p = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 
 		// Put things back
 		System.out.flush();
 		System.setOut(old);
 		
-		assertEquals(jtest.toString(), j.toString());
+		assertEquals(ptest.toString(), p.toString());
+		assertEquals(baos.toString(), answer);
 	}
 
+	String Build_answer_to_test_create_character_as_Wizard() {
+		String a = "";
+		
+		a = a + "Création du personnage du Joueur 1\n";
+		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
+		a = a + "Niveau du personnage ?\n";
+		a = a + "Force du personnage ?\n";
+		a = a + "Agilité du personnage ?\n";
+		a = a + "Intelligence du personnage ?\n";
+		a = a + "Abracadabra je suis le Mage Joueur 1 niveau 10 je possède 50 de vitalité, 0 de force, 0 d'agilité et 10 d'intelligence !\n";
+
+		return a;
+	}
+	
 	@Test
-	public void test_create_character_is_Mage() {
+	public void test_create_character_as_Wizard() {
 		System.setIn(new ByteArrayInputStream("3\n10\n0\n0\n10\n".getBytes()));
-		
+		String answer = Build_answer_to_test_create_character_as_Wizard();
+
 		// Create a stream to hold the output
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
@@ -76,24 +117,65 @@ public class GameTest {
 		// Tell Java to use our special stream
 		System.setOut(ps);
 		
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
-
-		Game g = new Game();
-
-		Player jtest = g.create_character("Joueur 1");
-		Player j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
+		Game.s = new Scanner(System.in);
+		Player ptest = Game.create_character("Joueur 1");
+		Player p = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 
 		// Put things back
 		System.out.flush();
 		System.setOut(old);
 		
-		assertEquals(jtest.toString(), j.toString());
+		assertEquals(ptest.toString(), p.toString());
+		assertEquals(baos.toString(), answer);
+	}
+	
+	public String build_request_to_choose_character_as_Warrior_with_Strength_10() {
+		String r = "";
+		
+		// choose class Warrior
+		r = r + "1\n";
+		
+		// choose level
+		r = r + "10\n";
+		
+		// choose strength
+		r = r + "10\n";
+		
+		// choose agility
+		r = r + "0\n";
+		
+		//  choose intelligence
+		r = r + "0\n";
+
+		return r;
+	}
+	
+	String build_answer_to_choose_character_as_Warrior_with_Strength_10() {
+		String a = "";
+		
+		// Must choose class
+		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
+		
+		// Must choose level
+		a = a + "Niveau du personnage ?\n";
+		
+		// Must choose strength
+		a = a + "Force du personnage ?\n";
+		
+		// Must choose agility
+		a = a + "Agilité du personnage ?\n";
+		
+		// Must choose intelligence
+		a = a + "Intelligence du personnage ?\n";
+		
+		return a;
 	}
 	
 	@Test
-	public void choose_character_as_Guerrier_with_Force_10() {
-		System.setIn(new ByteArrayInputStream("1\n10\n10\n0\n0\n".getBytes()));
+	public void choose_character_as_Warrior_with_Strength_10() {
+		String request = build_request_to_choose_character_as_Warrior_with_Strength_10();
+
+		System.setIn(new ByteArrayInputStream(request.getBytes()));
 		
 		// Create a stream to hold the output
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -102,25 +184,22 @@ public class GameTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
-		
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
 
-		Game g = new Game();
-		g.create_character_object("Joueur 1");
+		Game.s = new Scanner(System.in);
+		Player ptest = Game.create_character_object("Joueur 1");
+		Player p = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 
 		// Put things back
 		System.out.flush();
 		System.setOut(old);
 
-		assertEquals(g.getMyClass(),1);
-		assertEquals(g.getMyLevel(),10);
-		assertEquals(g.getMyStrength(),10);
-		assertEquals(g.getMyAgility(),0);
-		assertEquals(g.getMyIntelligence(),0);
+		String answer = build_answer_to_choose_character_as_Warrior_with_Strength_10();
+		assertEquals(baos.toString(),answer);
+		assertEquals(p.toString(), ptest.toString());
+
 	}
 	
-	public String build_request_to_choose_character_as_Guerrier_with_invalid_answers() {
+	public String build_request_to_choose_character_as_Warrior_with_invalid_answers() {
 		String r = "";
 		
 		// choose class Warrior
@@ -156,8 +235,8 @@ public class GameTest {
 		return r;
 	}
 	
-	String build_answer_to_choose_character_as_Guerrier_with_invalid_answers() {
-		String a ="";
+	String build_answer_to_choose_character_as_Warrior_with_invalid_answers() {
+		String a = "";
 		
 		// Must choose class
 		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
@@ -169,7 +248,7 @@ public class GameTest {
 		a = a + "Force du personnage ?\n";
 		
 		// Must choose agility
-		a = a + "Agilite du personnage ?\n";
+		a = a + "Agilité du personnage ?\n";
 		
 		// Must choose intelligence
 		a = a + "Intelligence du personnage ?\n";
@@ -187,7 +266,7 @@ public class GameTest {
 		a = a + "Force du personnage ?\n";
 		
 		// Must choose agility
-		a = a + "Agilite du personnage ?\n";
+		a = a + "Agilité du personnage ?\n";
 		
 		// Must choose intelligence
 		a = a + "Intelligence du personnage ?\n";
@@ -197,7 +276,7 @@ public class GameTest {
 	
 	@Test
 	public void choose_character_as_Guerrier_with_invalid_answers() {
-		String request = build_request_to_choose_character_as_Guerrier_with_invalid_answers();
+		String request = build_request_to_choose_character_as_Warrior_with_invalid_answers();
 				
 		System.setIn(new ByteArrayInputStream(request.getBytes()));
 		// Create a stream to hold the output
@@ -207,18 +286,15 @@ public class GameTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
-		Game g = new Game();
 
-		Scanner s = new Scanner(System.in);
-		Game.setSc(s);
-
-		g.create_character_object("Joueur 1");
+		Game.s = new Scanner(System.in);
+		Player player = Game.create_character_object("Joueur 1");
 
 		// Put things back
 		System.out.flush();
 		System.setOut(old);
 
-		String answer = build_answer_to_choose_character_as_Guerrier_with_invalid_answers();
+		String answer = build_answer_to_choose_character_as_Warrior_with_invalid_answers();
 		assertEquals(baos.toString(), answer);
 	}
 }

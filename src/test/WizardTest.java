@@ -46,6 +46,7 @@ public class WizardTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
+		Game.s = new Scanner(System.in);
 
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		j.loseLife(0, j);
@@ -67,6 +68,7 @@ public class WizardTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
+		Game.s = new Scanner(System.in);
 
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		j.loseLife(10, j);
@@ -88,6 +90,7 @@ public class WizardTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
+		Game.s = new Scanner(System.in);
 
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		j.loseLife(50, j);
@@ -111,6 +114,7 @@ public class WizardTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
+		Game.s = new Scanner(System.in);
 
 		Wizard j1 = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		Wizard j2 = new Wizard("Joueur 2", 10, 50, 0, 0, 10);
@@ -136,6 +140,7 @@ public class WizardTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("2\n".getBytes()));
+		Game.s = new Scanner(System.in);
 
 		Wizard j1 = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		Wizard j2 = new Wizard("Joueur 2", 10, 50, 0, 0, 10);

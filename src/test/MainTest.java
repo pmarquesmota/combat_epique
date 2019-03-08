@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 import pt.marquesmota.*;
 
@@ -87,14 +88,14 @@ public class MainTest {
 		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
 		a = a + "Niveau du personnage ?\n";
 		a = a + "Force du personnage ?\n";
-		a = a + "Agilite du personnage ?\n";
+		a = a + "Agilité du personnage ?\n";
 		a = a + "Intelligence du personnage ?\n";
 		a = a + "Woarg je suis le Guerrier Joueur 1 niveau 10 je possède 50 de vitalité, 10 de force, 0 d'agilité et 0 d'intelligence !\n";
 		a = a + "Création du personnage du Joueur 2\n";
 		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
 		a = a + "Niveau du personnage ?\n";
 		a = a + "Force du personnage ?\n";
-		a = a + "Agilite du personnage ?\n";
+		a = a + "Agilité du personnage ?\n";
 		a = a + "Intelligence du personnage ?\n";
 		a = a + "Abracadabra je suis le Mage Joueur 2 niveau 10 je possède 50 de vitalité, 0 de force, 0 d'agilité et 10 d'intelligence !\n";
 		a = a + "Joueur 1 (50 Vitalité) veuillez choisir votre action (1 : Attaque Basique, 2 : Attaque Spéciale)\n";
@@ -138,6 +139,7 @@ public class MainTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
+		Game.s = new Scanner(System.in);
 
 		String[] arg = {};
 		Main.main(arg);

@@ -45,6 +45,7 @@ public class WarriorTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
+		Game.s = new Scanner(System.in);
 
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		j.loseLife(0, j);
@@ -66,6 +67,7 @@ public class WarriorTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
+		Game.s = new Scanner(System.in);
 
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		j.loseLife(10, j);
@@ -87,6 +89,7 @@ public class WarriorTest {
 		PrintStream old = System.out;
 		// Tell Java to use our special stream
 		System.setOut(ps);
+		Game.s = new Scanner(System.in);
 
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		j.loseLife(50, j);
@@ -110,6 +113,7 @@ public class WarriorTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("1\n".getBytes()));
+		Game.s = new Scanner(System.in);
 
 		Warrior j1 = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		Warrior j2 = new Warrior("Joueur 2", 10, 50, 10, 0, 0);
@@ -135,6 +139,7 @@ public class WarriorTest {
 		System.setOut(ps);
 
 		System.setIn(new ByteArrayInputStream("2\n".getBytes()));
+		Game.s = new Scanner(System.in);
 
 		Warrior j1 = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		Warrior j2 = new Warrior("Joueur 2", 10, 50, 10, 0, 0);
