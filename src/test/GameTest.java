@@ -241,7 +241,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void choose_character_as_Guerrier_with_invalid_answers() {
+	public void choose_character_as_Warrior_with_invalid_answers() {
 		String request = build_request_to_choose_character_as_Warrior_with_invalid_answers();
 		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
 
