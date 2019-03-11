@@ -140,7 +140,7 @@ public class RangerTest {
 	 * Test the setter and getter for the Life variable
 	 */
 	@Test
-	public void test_setVie_getVie() {
+	public void test_setVie_getLife() {
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		j.setLife(60);
 		assertEquals(j.getLife(), 60);
@@ -150,7 +150,7 @@ public class RangerTest {
 	 * Test the getter for the InitialLife variable
 	 */
 	@Test
-	public void test_getVieInitiale() {
+	public void test_getInitialLife() {
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		assertEquals(j.getInitialLife(), 50);
 	}
@@ -159,7 +159,7 @@ public class RangerTest {
 	 * Test the getter for the Level variable
 	 */
 	@Test
-	public void test_getNiveau() {
+	public void test_getLevel() {
 		Ranger j = new Ranger("Joueur 1", 10, 50,0, 10, 0);
 		assertEquals(j.getLevel(), 10);
 	}
@@ -177,7 +177,7 @@ public class RangerTest {
 	 * Test the setter and getter for the Agility variable
 	 */
 	@Test
-	public void test_setAgilite_getAgilite() {
+	public void test_setAgilite_getAgility() {
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		j.setAgility(20);
 		assertEquals(j.getAgility(), 20);
@@ -187,7 +187,7 @@ public class RangerTest {
 	 * Test the getter for the Strength variable
 	 */
 	@Test
-	public void test_getForce() {
+	public void test_getStrength() {
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		assertEquals(j.getStrength(), 0);
 	}
@@ -196,7 +196,7 @@ public class RangerTest {
 	 * Test the getter for the Name variable
 	 */
 	@Test
-	public void test_getNom() {
+	public void test_getName() {
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		assertEquals(j.getName(), "Joueur 1");
 	}
