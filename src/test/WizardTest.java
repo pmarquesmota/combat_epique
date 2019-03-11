@@ -144,7 +144,7 @@ public class WizardTest {
 	 * Test the setter and getter for the Life variable
 	 */
 	@Test
-	public void test_setVie_getVie() {
+	public void test_setLife_getLife() {
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		j.setLife(60);
 		assertEquals(j.getLife(), 60);
@@ -154,7 +154,7 @@ public class WizardTest {
 	 * Test the getter for the InitialLife variable
 	 */
 	@Test
-	public void test_getVieInitiale() {
+	public void test_getInitialLife() {
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		assertEquals(j.getInitialLife(), 50);
 	}
@@ -163,7 +163,7 @@ public class WizardTest {
 	 * Test the getter for the Level variable
 	 */
 	@Test
-	public void test_getNiveau() {
+	public void test_getLevel() {
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		assertEquals(j.getLevel(), 10);
 	}
@@ -181,7 +181,7 @@ public class WizardTest {
 	 * Test the setter and getter for the Agility variable
 	 */
 	@Test
-	public void test_setAgilite_getAgilite() {
+	public void test_setAgilite_getAgility() {
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		j.setAgility(20);
 		assertEquals(j.getAgility(), 20);
@@ -191,7 +191,7 @@ public class WizardTest {
 	 * Test the getter for the Strength variable
 	 */
 	@Test
-	public void test_getForce() {
+	public void test_getStrength() {
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		assertEquals(j.getStrength(), 0);
 	}
@@ -200,7 +200,7 @@ public class WizardTest {
 	 * Test the getter for the Name variable
 	 */
 	@Test
-	public void test_getNom() {
+	public void test_getName() {
 		Wizard j = new Wizard("Joueur 1", 10, 50, 0, 0, 10);
 		assertEquals(j.getName(), "Joueur 1");
 	}
