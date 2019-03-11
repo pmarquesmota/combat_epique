@@ -100,7 +100,7 @@ public class RangerTest {
 	 * Test the generic basic attack.
 	 */
 	@Test
-	public void test_attack_basic_attack() {
+	public void test_generic_basic_attack() {
 		ByteArrayOutputStream baos = MyStream.RedirectStream("1\n");
 
 		Game.s = new Scanner(System.in);
@@ -120,7 +120,7 @@ public class RangerTest {
 	 * Test the generic special attack.
 	 */
 	@Test
-	public void test_attack_special_attack() {
+	public void test_generic_special_attack() {
 		ByteArrayOutputStream baos = MyStream.RedirectStream("2\n");
 
 		Game.s = new Scanner(System.in);
