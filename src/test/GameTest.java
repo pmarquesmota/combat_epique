@@ -10,6 +10,10 @@ import pt.marquesmota.*;
 
 public class GameTest {
 
+	/**
+	 * Build the request String to the create_character method test as a Warrior.
+	 * @return The request String.
+	 */
 	public String Build_request_to_test_create_character_as_Warrior() {
 		String r = "";
 		
@@ -31,6 +35,10 @@ public class GameTest {
 		return r;
 	}
 	
+	/**
+	 * Build the answer String to the create_character method test as a Warrior, with invalid answers.
+	 * @return The answer String.
+	 */
 	String Build_answer_to_test_create_character_as_Warrior() {
 		String a = "";
 		
@@ -45,6 +53,9 @@ public class GameTest {
 		return a;
 	}
 	
+	/**
+	 * Test the create_character method as a Warrior.
+	 */
 	@Test
 	public void test_create_character_as_Warrior() {
 		String request = Build_request_to_test_create_character_as_Warrior();
@@ -62,6 +73,10 @@ public class GameTest {
 		assertEquals(baos.toString(), answer);
 	}
 
+	/**
+	 * Build the request String to the create_character method test as a Ranger.
+	 * @return The request String.
+	 */
 	public String Build_request_to_test_create_character_as_Ranger() {
 		String r = "";
 		
@@ -83,6 +98,10 @@ public class GameTest {
 		return r;
 	}
 	
+	/**
+	 * Build the answer String to the create_character method test as a Ranger.
+	 * @return The answer String.
+	 */
 	String Build_answer_to_test_create_character_as_Ranger() {
 		String a = "";
 		
@@ -97,6 +116,9 @@ public class GameTest {
 		return a;
 	}
 	
+	/**
+	 * Test the create_character method as a Ranger.
+	 */
 	@Test
 	public void test_create_character_as_Ranger() {
 		String request = Build_request_to_test_create_character_as_Ranger();
@@ -114,6 +136,10 @@ public class GameTest {
 		assertEquals(baos.toString(), answer);
 	}
 
+	/**
+	 * Build the request String to the create_character method test as a Wizard.
+	 * @return The request String.
+	 */
 	public String Build_request_to_test_create_character_as_Wizard() {
 		String r = "";
 		
@@ -135,6 +161,10 @@ public class GameTest {
 		return r;
 	}
 	
+	/**
+	 * Build the answer String to the create_character method test as a Wizard.
+	 * @return The answer String.
+	 */
 	String Build_answer_to_test_create_character_as_Wizard() {
 		String a = "";
 		
@@ -149,6 +179,9 @@ public class GameTest {
 		return a;
 	}
 	
+	/**
+	 * Test the create_character method as a Wizard.
+	 */
 	@Test
 	public void test_create_character_as_Wizard() {
 		String request = Build_request_to_test_create_character_as_Wizard();
@@ -165,6 +198,10 @@ public class GameTest {
 		assertEquals(baos.toString(), answer);
 	}
 		
+	/**
+	 * Build the request String to the create_character method test as a Warrior, with invalid answers.
+	 * @return The request String.
+	 */
 	public String build_request_to_choose_character_as_Warrior_with_invalid_answers() {
 		String r = "";
 		
@@ -201,6 +238,10 @@ public class GameTest {
 		return r;
 	}
 	
+	/**
+	 * Build the answer String to the create_character method test as a Warrior, with invalid answers.
+	 * @return The answer String.
+	 */
 	String build_answer_to_choose_character_as_Warrior_with_invalid_answers() {
 		String a = "";
 		
@@ -240,6 +281,9 @@ public class GameTest {
 		return a;
 	}
 	
+	/**
+	 * Test the create_character method as a Warrior, with invalid answers.
+	 */
 	@Test
 	public void choose_character_as_Warrior_with_invalid_answers() {
 		String request = build_request_to_choose_character_as_Warrior_with_invalid_answers();
@@ -257,6 +301,10 @@ public class GameTest {
 		assertEquals(ptest.toString(), p.toString());
 	}
 
+	/**
+	 * Build the request String to the create_character method test as a Ranger, with invalid answers.
+	 * @return The request String.
+	 */
 	public String build_request_to_choose_character_as_Ranger_with_invalid_answers() {
 		String r = "";
 		
@@ -293,6 +341,10 @@ public class GameTest {
 		return r;
 	}
 	
+	/**
+	 * Build the answer String to the create_character method test as a Ranger, with invalid answers.
+	 * @return The answer String.
+	 */
 	String build_answer_to_choose_character_as_Ranger_with_invalid_answers() {
 		String a = "";
 		
@@ -332,6 +384,9 @@ public class GameTest {
 		return a;
 	}
 	
+	/**
+	 * Test the create_character method as a Ranger, with invalid answers.
+	 */
 	@Test
 	public void choose_character_as_Ranger_with_invalid_answers() {
 		String request = build_request_to_choose_character_as_Ranger_with_invalid_answers();
@@ -349,6 +404,10 @@ public class GameTest {
 		assertEquals(ptest.toString(), p.toString());
 	}
 
+	/**
+	 * Build the request String to the create_character method test as a Wizard, with invalid answers.
+	 * @return The request String.
+	 */
 	public String build_request_to_choose_character_as_Wizard_with_invalid_answers() {
 		String r = "";
 		
@@ -385,6 +444,10 @@ public class GameTest {
 		return r;
 	}
 	
+	/**
+	 * Build the answer String to the create_character method test as a Wizard, with invalid answers.
+	 * @return The answer String.
+	 */
 	String build_answer_to_choose_character_as_Wizard_with_invalid_answers() {
 		String a = "";
 		
@@ -424,6 +487,9 @@ public class GameTest {
 		return a;
 	}
 	
+	/**
+	 * Test the create_character method as a Wizard, with invalid answers.
+	 */
 	@Test
 	public void choose_character_as_Wizard_with_invalid_answers() {
 		String request = build_request_to_choose_character_as_Wizard_with_invalid_answers();
