@@ -164,67 +164,7 @@ public class GameTest {
 		assertEquals(ptest.toString(), p.toString());
 		assertEquals(baos.toString(), answer);
 	}
-	
-	public String build_request_to_choose_character_as_Warrior_with_Strength_10() {
-		String r = "";
 		
-		// choose class Warrior
-		r = r + "1\n";
-		
-		// choose level
-		r = r + "10\n";
-		
-		// choose strength
-		r = r + "10\n";
-		
-		// choose agility
-		r = r + "0\n";
-		
-		//  choose intelligence
-		r = r + "0\n";
-
-		return r;
-	}
-	
-	String build_answer_to_choose_character_as_Warrior_with_Strength_10() {
-		String a = "";
-		
-		// Must choose class
-		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
-		
-		// Must choose level
-		a = a + "Niveau du personnage ?\n";
-		
-		// Must choose strength
-		a = a + "Force du personnage ?\n";
-		
-		// Must choose agility
-		a = a + "Agilité du personnage ?\n";
-		
-		// Must choose intelligence
-		a = a + "Intelligence du personnage ?\n";
-		
-		return a;
-	}
-	
-	@Test
-	public void choose_character_as_Warrior_with_Strength_10() {
-		String request = build_request_to_choose_character_as_Warrior_with_Strength_10();
-		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
-
-		Game.s = new Scanner(System.in);
-
-		Player ptest = Game.create_character_object("Joueur 1");
-		Player p = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
-
-		MyStream.ResetStream();
-
-		String answer = build_answer_to_choose_character_as_Warrior_with_Strength_10();
-		assertEquals(baos.toString(),answer);
-		assertEquals(p.toString(), ptest.toString());
-
-	}
-	
 	public String build_request_to_choose_character_as_Warrior_with_invalid_answers() {
 		String r = "";
 		
