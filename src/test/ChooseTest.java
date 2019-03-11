@@ -10,6 +10,10 @@ import org.junit.Test;
 import pt.marquesmota.*;
 
 public class ChooseTest {
+	
+	/**
+	 * Test the choice method with correct numerical input
+	 */
 	@Test
 	public void test_choice_with_correct_input() {
 		ByteArrayOutputStream baos = MyStream.RedirectStream("1\n");
@@ -24,6 +28,9 @@ public class ChooseTest {
 		assertTrue(result == 1);
 	}
 
+	/**
+	 * Test the choice method with incorrect numerical input
+	 */
 	@Test
 	public void test_choice_with_incorrect_numeric_input() {
 		ByteArrayOutputStream baos = MyStream.RedirectStream("10\n1\n");
@@ -38,6 +45,9 @@ public class ChooseTest {
 		assertTrue(result == 1);
 	}
 
+	/**
+	 * Test the choice method with incorrect alphanumerical input
+	 */
 	@Test
 	public void test_choice_with_incorrect_string_input() {
 		ByteArrayOutputStream baos = MyStream.RedirectStream("a\n1\n");
