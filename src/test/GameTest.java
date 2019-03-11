@@ -10,6 +10,27 @@ import pt.marquesmota.*;
 
 public class GameTest {
 
+	public String Build_request_to_test_create_character_as_Warrior() {
+		String r = "";
+		
+		// choose class Warrior
+		r = r + "1\n";
+		
+		// choose level
+		r = r + "10\n";
+		
+		// choose strength
+		r = r + "10\n";
+		
+		// choose agility
+		r = r + "0\n";
+		
+		//  choose intelligence
+		r = r + "0\n";
+
+		return r;
+	}
+	
 	String Build_answer_to_test_create_character_as_Warrior() {
 		String a = "";
 		
@@ -26,7 +47,8 @@ public class GameTest {
 	
 	@Test
 	public void test_create_character_as_Warrior() {
-		ByteArrayOutputStream baos = MyStream.RedirectStream("1\n10\n10\n0\n0\n");
+		String request = Build_request_to_test_create_character_as_Warrior();
+		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
 
 		String answer = Build_answer_to_test_create_character_as_Warrior();
 		
@@ -40,6 +62,27 @@ public class GameTest {
 		assertEquals(baos.toString(), answer);
 	}
 
+	public String Build_request_to_test_create_character_as_Ranger() {
+		String r = "";
+		
+		// choose class Ranger
+		r = r + "2\n";
+		
+		// choose level
+		r = r + "10\n";
+		
+		// choose strength
+		r = r + "0\n";
+		
+		// choose agility
+		r = r + "10\n";
+		
+		//  choose intelligence
+		r = r + "0\n";
+
+		return r;
+	}
+	
 	String Build_answer_to_test_create_character_as_Ranger() {
 		String a = "";
 		
@@ -56,7 +99,8 @@ public class GameTest {
 	
 	@Test
 	public void test_create_character_as_Ranger() {
-		ByteArrayOutputStream baos = MyStream.RedirectStream("2\n10\n0\n10\n0\n");
+		String request = Build_request_to_test_create_character_as_Ranger();
+		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
 
 		String answer = Build_answer_to_test_create_character_as_Ranger();
 		
@@ -70,6 +114,27 @@ public class GameTest {
 		assertEquals(baos.toString(), answer);
 	}
 
+	public String Build_request_to_test_create_character_as_Wizard() {
+		String r = "";
+		
+		// choose class Wizard
+		r = r + "3\n";
+		
+		// choose level
+		r = r + "10\n";
+		
+		// choose strength
+		r = r + "0\n";
+		
+		// choose agility
+		r = r + "0\n";
+		
+		//  choose intelligence
+		r = r + "10\n";
+
+		return r;
+	}
+	
 	String Build_answer_to_test_create_character_as_Wizard() {
 		String a = "";
 		
@@ -86,7 +151,8 @@ public class GameTest {
 	
 	@Test
 	public void test_create_character_as_Wizard() {
-		ByteArrayOutputStream baos = MyStream.RedirectStream("3\n10\n0\n0\n10\n");
+		String request = Build_request_to_test_create_character_as_Wizard();
+		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
 		String answer = Build_answer_to_test_create_character_as_Wizard();
 		
 		Game.s = new Scanner(System.in);
