@@ -124,7 +124,9 @@ public class MainTest {
 
 		return a;
 	}
-	
+	/**
+	 * Test the Main method.
+	 */
 	@Test
 	public void test_Main() {
 		ByteArrayOutputStream baos = MyStream.RedirectStream(build_answer_to_test_Main());
