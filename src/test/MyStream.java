@@ -12,6 +12,7 @@ public class MyStream {
 	
 	/**
 	 * Redirect the input and output to a String.
+	 * See https://stackoverflow.com/questions/8708342/redirect-console-output-to-string-in-java
 	 * @param s The String to feed to the input Stream
 	 * @return A ByteArrayOutputStream containing the String from the redirected output
 	 */

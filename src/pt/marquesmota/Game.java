@@ -68,11 +68,12 @@ public class Game {
 	}
 
 	// Interface for the array of methods
+	// see: https://stackoverflow.com/questions/4280727/java-creating-an-array-of-methods
 	interface CharacterAction {
 		Player Create(String newName, int Level, int Strength, int Agility, int Intelligence);
 	}
 	
-	// Array of methods which implement the Adapter pattern
+	// Array of methods
 	private static CharacterAction[] CharacterActions = new CharacterAction[] {
 	        new CharacterAction()	{
 	        							public Player Create(String newName, int Level, int Strength, int Agility, int Intelligence) {
