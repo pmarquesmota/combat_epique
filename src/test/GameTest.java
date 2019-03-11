@@ -254,4 +254,184 @@ public class GameTest {
 		String answer = build_answer_to_choose_character_as_Warrior_with_invalid_answers();
 		assertEquals(baos.toString(), answer);
 	}
+
+	public String build_request_to_choose_character_as_Ranger_with_invalid_answers() {
+		String r = "";
+		
+		// choose class Ranger
+		r = r + "2\n";
+		
+		// choose level
+		r = r + "10\n";
+		
+		// choose strength
+		r = r + "10\n";
+		
+		// choose agility
+		r = r + "10\n";
+		
+		//  choose intelligence
+		r = r + "10\n";
+		
+		// choose class Ranger
+		r = r + "2\n";
+		
+		// choose level
+		r = r + "10\n";
+		
+		// choose strength
+		r = r + "10\n";
+		
+		// choose agility
+		r = r + "0\n";
+		
+		//  choose intelligence
+		r = r + "0\n";
+		
+		return r;
+	}
+	
+	String build_answer_to_choose_character_as_Ranger_with_invalid_answers() {
+		String a = "";
+		
+		// Must choose class
+		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
+		
+		// Must choose level
+		a = a + "Niveau du personnage ?\n";
+		
+		// Must choose strength
+		a = a + "Force du personnage ?\n";
+		
+		// Must choose agility
+		a = a + "Agilité du personnage ?\n";
+		
+		// Must choose intelligence
+		a = a + "Intelligence du personnage ?\n";
+		
+		// Wrong choices
+		a = a + "Attention le total force + agilité + intelligence doit être égal au niveau du joueur. Veuillez recommencer, s'il vous plait.\n";
+		
+		// Must choose class
+		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
+		
+		// Must choose level
+		a = a + "Niveau du personnage ?\n";
+		
+		// Must choose strength
+		a = a + "Force du personnage ?\n";
+		
+		// Must choose agility
+		a = a + "Agilité du personnage ?\n";
+		
+		// Must choose intelligence
+		a = a + "Intelligence du personnage ?\n";
+		
+		return a;
+	}
+	
+	@Test
+	public void choose_character_as_Ranger_with_invalid_answers() {
+		String request = build_request_to_choose_character_as_Ranger_with_invalid_answers();
+		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
+
+		Game.s = new Scanner(System.in);
+
+		Player player = Game.create_character_object("Joueur 1");
+
+		MyStream.ResetStream();
+
+		String answer = build_answer_to_choose_character_as_Ranger_with_invalid_answers();
+		assertEquals(baos.toString(), answer);
+	}
+
+	public String build_request_to_choose_character_as_Wizard_with_invalid_answers() {
+		String r = "";
+		
+		// choose class Wizard
+		r = r + "3\n";
+		
+		// choose level
+		r = r + "10\n";
+		
+		// choose strength
+		r = r + "10\n";
+		
+		// choose agility
+		r = r + "10\n";
+		
+		//  choose intelligence
+		r = r + "10\n";
+		
+		// choose class Wizard
+		r = r + "3\n";
+		
+		// choose level
+		r = r + "10\n";
+		
+		// choose strength
+		r = r + "10\n";
+		
+		// choose agility
+		r = r + "0\n";
+		
+		//  choose intelligence
+		r = r + "0\n";
+		
+		return r;
+	}
+	
+	String build_answer_to_choose_character_as_Wizard_with_invalid_answers() {
+		String a = "";
+		
+		// Must choose class
+		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
+		
+		// Must choose level
+		a = a + "Niveau du personnage ?\n";
+		
+		// Must choose strength
+		a = a + "Force du personnage ?\n";
+		
+		// Must choose agility
+		a = a + "Agilité du personnage ?\n";
+		
+		// Must choose intelligence
+		a = a + "Intelligence du personnage ?\n";
+		
+		// Wrong choices
+		a = a + "Attention le total force + agilité + intelligence doit être égal au niveau du joueur. Veuillez recommencer, s'il vous plait.\n";
+		
+		// Must choose class
+		a = a + "Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)\n";
+		
+		// Must choose level
+		a = a + "Niveau du personnage ?\n";
+		
+		// Must choose strength
+		a = a + "Force du personnage ?\n";
+		
+		// Must choose agility
+		a = a + "Agilité du personnage ?\n";
+		
+		// Must choose intelligence
+		a = a + "Intelligence du personnage ?\n";
+		
+		return a;
+	}
+	
+	@Test
+	public void choose_character_as_Wizard_with_invalid_answers() {
+		String request = build_request_to_choose_character_as_Wizard_with_invalid_answers();
+		ByteArrayOutputStream baos = MyStream.RedirectStream(request);
+
+		Game.s = new Scanner(System.in);
+
+		Player player = Game.create_character_object("Joueur 1");
+
+		MyStream.ResetStream();
+
+		String answer = build_answer_to_choose_character_as_Wizard_with_invalid_answers();
+		assertEquals(baos.toString(), answer);
+	}
 }
