@@ -143,7 +143,7 @@ public class WarriorTest {
 	 * Test the setter and getter for the Life variable
 	 */
 	@Test
-	public void test_setVie_getVie() {
+	public void test_setLife_getLife() {
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		j.setLife(60);
 		assertEquals(j.getLife(), 60);
@@ -153,7 +153,7 @@ public class WarriorTest {
 	 * Test the getter for the InitialLife variable
 	 */
 	@Test
-	public void test_getVieInitiale() {
+	public void test_getInitialLife() {
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		assertEquals(j.getInitialLife(), 50);
 	}
@@ -162,7 +162,7 @@ public class WarriorTest {
 	 * Test the getter for the Level variable
 	 */
 	@Test
-	public void test_getNiveau() {
+	public void test_getLevel() {
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		assertEquals(j.getLevel(), 10);
 	}
@@ -180,7 +180,7 @@ public class WarriorTest {
 	 * Test the setter and getter for the Agility variable
 	 */
 	@Test
-	public void test_setAgilite_getAgilite() {
+	public void test_setAgilite_getAgility() {
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		j.setAgility(10);
 		assertEquals(j.getAgility(), 10);
@@ -190,7 +190,7 @@ public class WarriorTest {
 	 * Test the getter for the Strength variable
 	 */
 	@Test
-	public void test_getForce() {
+	public void test_getStrength() {
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		assertEquals(j.getStrength(), 10);
 	}
@@ -199,7 +199,7 @@ public class WarriorTest {
 	 * Test the getter for the Name variable
 	 */
 	@Test
-	public void test_getNom() {
+	public void test_getName() {
 		Warrior j = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 		assertEquals(j.getName(), "Joueur 1");
 	}

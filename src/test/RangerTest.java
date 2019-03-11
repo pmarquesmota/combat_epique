@@ -140,7 +140,7 @@ public class RangerTest {
 	 * Test the setter and getter for the Life variable
 	 */
 	@Test
-	public void test_setVie_getLife() {
+	public void test_setLife_getLife() {
 		Ranger j = new Ranger("Joueur 1", 10, 50, 0, 10, 0);
 		j.setLife(60);
 		assertEquals(j.getLife(), 60);
