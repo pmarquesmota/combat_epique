@@ -247,12 +247,14 @@ public class GameTest {
 
 		Game.s = new Scanner(System.in);
 
-		Player player = Game.create_character_object("Joueur 1");
+		Player ptest = Game.create_character_object("Joueur 1");
+		Player p = new Warrior("Joueur 1", 10, 50, 10, 0, 0);
 
 		MyStream.ResetStream();
 
 		String answer = build_answer_to_choose_character_as_Warrior_with_invalid_answers();
 		assertEquals(baos.toString(), answer);
+		assertEquals(ptest.toString(), p.toString());
 	}
 
 	public String build_request_to_choose_character_as_Ranger_with_invalid_answers() {
@@ -337,12 +339,14 @@ public class GameTest {
 
 		Game.s = new Scanner(System.in);
 
-		Player player = Game.create_character_object("Joueur 1");
+		Player ptest = Game.create_character_object("Joueur 1");
+		Player p = new Ranger("Joueur 1", 10, 50, 10, 0, 0);
 
 		MyStream.ResetStream();
 
 		String answer = build_answer_to_choose_character_as_Ranger_with_invalid_answers();
 		assertEquals(baos.toString(), answer);
+		assertEquals(ptest.toString(), p.toString());
 	}
 
 	public String build_request_to_choose_character_as_Wizard_with_invalid_answers() {
@@ -427,11 +431,13 @@ public class GameTest {
 
 		Game.s = new Scanner(System.in);
 
-		Player player = Game.create_character_object("Joueur 1");
+		Player ptest = Game.create_character_object("Joueur 1");
+		Player p = new Wizard("Joueur 1", 10, 50, 10, 0, 0);
 
 		MyStream.ResetStream();
 
 		String answer = build_answer_to_choose_character_as_Wizard_with_invalid_answers();
 		assertEquals(baos.toString(), answer);
+		assertEquals(ptest.toString(), p.toString());
 	}
 }
